@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work — SynthWork Digital Agency</title>
+  <meta name="description"
+    content="Explore SynthWork's portfolio of web development, graphic design, video production, and AI automation projects.">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="portfolio.css">
+  <link rel="stylesheet" href="responsive.css">
+
+</head>
+
+<body>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="SynthWork Home">
+        <img src="logo.jpeg" alt="SynthWorks Digital Agency" class="site-logo-img">
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link active">Portfolio</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="admin.html" class="nav-link">Admin</a>
+        <a href="contact.html#booking" class="nav-cta">Book a Meeting</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-content">
+
+    <!-- Page Header -->
+    <section class="page-hero">
+      <div class="page-hero-bg">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+      </div>
+      <div class="container">
+        <span class="section-label animate-on-scroll">Portfolio</span>
+        <h1 class="page-hero-title animate-on-scroll delay-1">Our Work</h1>
+        <p class="page-hero-subtitle animate-on-scroll delay-2">A selection of projects we've built — websites, designs,
+          videos, and automation workflows.</p>
+      </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section class="filter-section">
+      <div class="container">
+        <div class="filter-bar animate-on-scroll" id="filterBar">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web Development</button>
+          <button class="filter-btn" data-filter="design">Graphic Design</button>
+          <button class="filter-btn" data-filter="video">Video Editing</button>
+          <button class="filter-btn" data-filter="ai">AI Automation</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="section portfolio-section">
+      <div class="container">
+        <div class="portfolio-grid" id="portfolioGrid">
+
+          <!-- ===== WEB DEVELOPMENT PROJECTS ===== -->
+
+          <div class="portfolio-item animate-on-scroll delay-1" data-category="web">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder web-ph-1">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="10" r="3" />
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  </svg>
+                  <span>App</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://track-sphere-six.vercel.app" target="_blank" rel="noopener"
+                    class="btn btn-primary btn-sm">View Live Site</a>
+                  <a href="https://github.com/rajputrudra494-svg/Track-Sphere" target="_blank" rel="noopener"
+                    class="btn btn-outline btn-sm">Source Code</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Web Applications</span>
+                <h3 class="portfolio-title">Track Sphere</h3>
+                <p class="portfolio-desc">GPS device tracking dashboard with real-time map integration, Leaflet maps,
+                  and a tactical dashboard interface.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-2" data-category="web">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder web-ph-2">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                  </svg>
+                  <span>App</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://diode-wikipedia.vercel.app" target="_blank" rel="noopener"
+                    class="btn btn-primary btn-sm">View Live Site</a>
+                  <a href="https://github.com/rajputrudra494-svg/Diode-Wikipedia" target="_blank" rel="noopener"
+                    class="btn btn-outline btn-sm">Source Code</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Web Applications</span>
+                <h3 class="portfolio-title">Diode Encyclopedia</h3>
+                <p class="portfolio-desc">Comprehensive interactive educational encyclopedia explaining electronic
+                  diodes and circuit concepts.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-3" data-category="web">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder web-ph-3">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <span>App</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://location-tracker-phi-ashen.vercel.app" target="_blank" rel="noopener"
+                    class="btn btn-primary btn-sm">View Live Site</a>
+                  <a href="https://github.com/rajputrudra494-svg/Location-Tracker" target="_blank" rel="noopener"
+                    class="btn btn-outline btn-sm">Source Code</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Web Applications</span>
+                <h3 class="portfolio-title">Location Tracker</h3>
+                <p class="portfolio-desc">Real-time location monitoring application featuring map visualizations and
+                  geographic tracking functionalities.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-1" data-category="web">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder web-ph-4">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                  <span>App</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://defense-tech.vercel.app" target="_blank" rel="noopener"
+                    class="btn btn-primary btn-sm">View Live Site</a>
+                  <a href="https://github.com/rajputrudra494-svg/Defense-tech" target="_blank" rel="noopener"
+                    class="btn btn-outline btn-sm">Source Code</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Web Applications</span>
+                <h3 class="portfolio-title">Defense Tech</h3>
+                <p class="portfolio-desc">Equipment accountability system with role-based authentication and a
+                  military-grade tactical interface.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-2" data-category="web">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder web-ph-5">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg>
+                  <span>Agency</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://tech-sparc-studios.vercel.app" target="_blank" rel="noopener"
+                    class="btn btn-primary btn-sm">View Live Site</a>
+                  <a href="https://github.com/rajputrudra494-svg/Tech-Sparc-Studios" target="_blank" rel="noopener"
+                    class="btn btn-outline btn-sm">Source Code</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Web Development</span>
+                <h3 class="portfolio-title">Tech Sparc Studios</h3>
+                <p class="portfolio-desc">Modern creative agency website featuring smooth animations and dynamic
+                  responsive layouts for studios.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-3" data-category="web">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder web-ph-6">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                  </svg>
+                  <span>Template</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://the-demo.vercel.app" target="_blank" rel="noopener"
+                    class="btn btn-primary btn-sm">View Live Site</a>
+                  <a href="https://github.com/rajputrudra494-svg/the-demo" target="_blank" rel="noopener"
+                    class="btn btn-outline btn-sm">Source Code</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Web Development</span>
+                <h3 class="portfolio-title">The Demo</h3>
+                <p class="portfolio-desc">A flexible framework demonstration and template playground showcasing dynamic
+                  web components.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-1" data-category="web">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder web-ph-7">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg>
+                  <span>Agency</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://softpixel-studio.vercel.app" target="_blank" rel="noopener"
+                    class="btn btn-primary btn-sm">View Live Site</a>
+                  <a href="https://github.com/rajputrudra494-svg/Softpixel-Studio" target="_blank" rel="noopener"
+                    class="btn btn-outline btn-sm">Source Code</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Web Development</span>
+                <h3 class="portfolio-title">Softpixel Studio</h3>
+                <p class="portfolio-desc">Design and development agency platform with a refined, soft aesthetic and
+                  professional service presentation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-2" data-category="web">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder web-ph-8">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                    <line x1="6" y1="1" x2="6" y2="4" />
+                    <line x1="10" y1="1" x2="10" y2="4" />
+                    <line x1="14" y1="1" x2="14" y2="4" />
+                  </svg>
+                  <span>eCommerce</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://the-bungalow-cafe.vercel.app" target="_blank" rel="noopener"
+                    class="btn btn-primary btn-sm">View Live Site</a>
+                  <a href="https://github.com/rajputrudra494-svg/The-Bungalow-Cafe" target="_blank" rel="noopener"
+                    class="btn btn-outline btn-sm">Source Code</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">E-Commerce</span>
+                <h3 class="portfolio-title">The Bungalow Cafe</h3>
+                <p class="portfolio-desc">Restaurant and cafe website highlighting an interactive menu display, warm
+                  visual design, and location details.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-3" data-category="web">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder web-ph-9">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                    <polyline points="2 17 12 22 22 17" />
+                    <polyline points="2 12 12 17 22 12" />
+                  </svg>
+                  <span>Agency</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://the-pylon-studio.vercel.app" target="_blank" rel="noopener"
+                    class="btn btn-primary btn-sm">View Live Site</a>
+                  <a href="https://github.com/rajputrudra494-svg/The-Pylon-Studio" target="_blank" rel="noopener"
+                    class="btn btn-outline btn-sm">Source Code</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Web Development</span>
+                <h3 class="portfolio-title">The Pylon Studio</h3>
+                <p class="portfolio-desc">Creative studio landing page with bold typography, dark-themed structure, and
+                  polished interactive layouts.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-1" data-category="web">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder web-ph-1">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                    <line x1="6" y1="1" x2="6" y2="4" />
+                    <line x1="10" y1="1" x2="10" y2="4" />
+                    <line x1="14" y1="1" x2="14" y2="4" />
+                  </svg>
+                  <span>eCommerce</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://fenster-cafe.vercel.app" target="_blank" rel="noopener"
+                    class="btn btn-primary btn-sm">View Live Site</a>
+                  <a href="https://github.com/rajputrudra494-svg/Fenster-cafe" target="_blank" rel="noopener"
+                    class="btn btn-outline btn-sm">Source Code</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">E-Commerce</span>
+                <h3 class="portfolio-title">Fenster Cafe</h3>
+                <p class="portfolio-desc">Elegant cafe interface built to bring an inviting, warm atmosphere to the web
+                  alongside a clean navigation structure.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== VIDEO EDITING ===== -->
+
+          <div class="portfolio-item animate-on-scroll delay-1" data-category="video">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder video-ph">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="23 7 16 12 23 17 23 7" />
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                  </svg>
+                  <span>Video Collection</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://drive.google.com/drive/folders/1OulK6tY7qPDKkGxPzHBWC79aDr7403dZ" target="_blank"
+                    rel="noopener" class="btn btn-primary btn-sm">View on Google Drive</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Video Editing</span>
+                <h3 class="portfolio-title">Video Production Reel</h3>
+                <p class="portfolio-desc">A collection of professional video editing and production work — promotional
+                  content, motion graphics, and visual storytelling.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-2" data-category="video">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder video-ph-2">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <polygon points="10 8 16 12 10 16 10 8" />
+                  </svg>
+                  <span>Motion Graphics</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://drive.google.com/drive/folders/1OulK6tY7qPDKkGxPzHBWC79aDr7403dZ" target="_blank"
+                    rel="noopener" class="btn btn-primary btn-sm">View Samples</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Video Editing</span>
+                <h3 class="portfolio-title">Motion Graphics & Animation</h3>
+                <p class="portfolio-desc">Animated content including logo animations, intro sequences, social media
+                  video content, and marketing video assets.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== GRAPHIC DESIGN ===== -->
+
+          <div class="portfolio-item animate-on-scroll delay-1" data-category="design">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder design-ph">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                    <path d="M2 2l7.586 7.586" />
+                    <circle cx="11" cy="11" r="2" />
+                  </svg>
+                  <span>Design Gallery</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://drive.google.com/drive/folders/1waAgmDA62V1QKswHcgyjza25uD5s7n3m" target="_blank"
+                    rel="noopener" class="btn btn-primary btn-sm">View on Google Drive</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Graphic Design</span>
+                <h3 class="portfolio-title">Brand Identity & Print Design</h3>
+                <p class="portfolio-desc">Logo designs, brand identity systems, business cards, social media templates,
+                  and marketing collateral for various clients.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-2" data-category="design">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder design-ph-2">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </svg>
+                  <span>Visual Content</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://drive.google.com/drive/folders/1waAgmDA62V1QKswHcgyjza25uD5s7n3m" target="_blank"
+                    rel="noopener" class="btn btn-primary btn-sm">View Gallery</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Graphic Design</span>
+                <h3 class="portfolio-title">Social Media & Digital Graphics</h3>
+                <p class="portfolio-desc">Eye-catching social media posts, banner designs, infographics, and digital
+                  marketing visuals optimized for engagement.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== AI AUTOMATION ===== -->
+
+          <div class="portfolio-item animate-on-scroll delay-1" data-category="ai">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder ai-ph">
+                  <div class="n8n-flow-visual">
+                    <div class="flow-node node-trigger"><span>Trigger</span></div>
+                    <div class="flow-connector"></div>
+                    <div class="flow-node node-ai"><span>AI</span></div>
+                    <div class="flow-connector"></div>
+                    <div class="flow-node node-output"><span>Output</span></div>
+                  </div>
+                  <span>n8n Workflow</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://n8n.io/workflows/1954-ai-agent-chat/" target="_blank" rel="noopener"
+                    class="btn btn-primary btn-sm">View on n8n</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">AI Automation</span>
+                <h3 class="portfolio-title">AI Agent Chatbot</h3>
+                <p class="portfolio-desc">Intelligent conversational agent built with n8n, OpenAI, and SerpAPI. Handles
+                  customer queries, searches the web, and provides context-aware responses.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-2" data-category="ai">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder ai-ph-2">
+                  <div class="n8n-flow-visual">
+                    <div class="flow-node node-trigger"><span>HTTP</span></div>
+                    <div class="flow-connector"></div>
+                    <div class="flow-node node-ai"><span>Scrape</span></div>
+                    <div class="flow-connector"></div>
+                    <div class="flow-node node-output"><span>AI Sum</span></div>
+                  </div>
+                  <span>n8n Workflow</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://n8n.io/workflows/1951-scrape-and-summarize-webpages-with-ai/" target="_blank"
+                    rel="noopener" class="btn btn-primary btn-sm">View on n8n</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">AI Automation</span>
+                <h3 class="portfolio-title">Web Scraper + AI Summarizer</h3>
+                <p class="portfolio-desc">Automated workflow that scrapes web content, processes it through AI for
+                  summarization, and delivers structured insights in real-time.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-3" data-category="ai">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder ai-ph-3">
+                  <div class="n8n-flow-visual">
+                    <div class="flow-node node-trigger"><span>Telegram</span></div>
+                    <div class="flow-connector"></div>
+                    <div class="flow-node node-ai"><span>GPT</span></div>
+                    <div class="flow-connector"></div>
+                    <div class="flow-node node-output"><span>Reply</span></div>
+                  </div>
+                  <span>n8n Workflow</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://n8n.io/workflows/1934-telegram-ai-chatbot/" target="_blank" rel="noopener"
+                    class="btn btn-primary btn-sm">View on n8n</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">AI Automation</span>
+                <h3 class="portfolio-title">Telegram AI Chatbot</h3>
+                <p class="portfolio-desc">AI-powered Telegram bot that processes user messages through OpenAI, handles
+                  conversation context, and delivers intelligent automated responses.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item animate-on-scroll delay-1" data-category="ai">
+            <div class="portfolio-card">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder ai-ph-4">
+                  <div class="n8n-flow-visual">
+                    <div class="flow-node node-trigger"><span>Webhook</span></div>
+                    <div class="flow-connector"></div>
+                    <div class="flow-node node-ai"><span>Process</span></div>
+                    <div class="flow-connector"></div>
+                    <div class="flow-node node-output"><span>API</span></div>
+                  </div>
+                  <span>n8n Workflow</span>
+                </div>
+                <div class="portfolio-overlay">
+                  <a href="https://n8n.io/workflows/1750-creating-an-api-endpoint/" target="_blank" rel="noopener"
+                    class="btn btn-primary btn-sm">View on n8n</a>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">AI Automation</span>
+                <h3 class="portfolio-title">Custom API Endpoint Builder</h3>
+                <p class="portfolio-desc">Automated API endpoint creation using n8n webhooks — no traditional backend
+                  needed. Perfect for integrating services and processing data flows.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Empty State -->
+        <div class="portfolio-empty" id="portfolioEmpty" style="display: none;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <p>No projects found in this category.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-card animate-on-scroll"
+          style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 3rem; text-align: center; position: relative; overflow: hidden;">
+          <h2 style="font-family: 'Playfair Display', serif; margin-bottom: var(--space-md);">Like What You See?</h2>
+          <p style="color: var(--text-secondary); max-width: 460px; margin: 0 auto var(--space-2xl); line-height: 1.6;">
+            Every project here was built with care and attention to detail. Let's discuss how we can do the same for
+            yours.</p>
+          <a href="contact.html#booking" class="btn btn-primary btn-lg">Start a Project</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="siteFooter">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="margin-bottom: var(--space-sm);">
+            <img src="logo.jpeg" alt="SynthWorks Digital Agency" class="site-logo-img">
+          </a>
+          <p>We craft digital experiences that elevate brands. From web development to AI automation, we bring creative
+            vision to life.</p>
+          <div class="footer-socials">
+            <a href="mailto:synthworks1303@gmail.com" class="footer-social-link" aria-label="Email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+            </a>
+            <a href="https://github.com/rajputrudra494-svg" target="_blank" rel="noopener" class="footer-social-link"
+              aria-label="GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#services">Web Development</a></li>
+            <li><a href="index.html#services">Graphic Design</a></li>
+            <li><a href="index.html#services">Video Production</a></li>
+            <li><a href="index.html#services">AI Automation</a></li>
+            <li><a href="index.html#services">Branding</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="portfolio.html">Our Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admin.html">Admin Portal</a></li>
+            <li><a href="contact.html#booking">Book a Meeting</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Get in Touch</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:synthworks1303@gmail.com">synthworks1303@gmail.com</a></li>
+            <li><span style="color: var(--text-muted); font-size: 0.875rem;">Mon–Tue, Thu, Sat–Sun</span></li>
+            <li><span style="color: var(--text-muted); font-size: 0.875rem;">3:30 PM – 8:00 PM</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 SynthWork Digital Agency. All rights reserved.</span>
+        <span>Crafted with precision &amp; purpose.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="core.js"></script>
+  <script src="portfolio.js"></script>
+</body>
+
+</html>

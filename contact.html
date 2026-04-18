@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Book a Meeting — SynthWork Digital Agency</title>
+  <meta name="description"
+    content="Get in touch with SynthWork or book a meeting. We're available Mon-Tue, Thu, Sat-Sun from 3:30 PM to 8:00 PM.">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="responsive.css">
+
+</head>
+
+<body>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="SynthWork Home">
+        <img src="logo.jpeg" alt="SynthWorks Digital Agency" class="site-logo-img">
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="admin.html" class="nav-link">Admin</a>
+        <a href="contact.html#booking" class="nav-cta">Book a Meeting</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-content">
+
+    <!-- Page Header -->
+    <section class="page-hero">
+      <div class="page-hero-bg">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+      </div>
+      <div class="container">
+        <span class="section-label animate-on-scroll">Get in Touch</span>
+        <h1 class="page-hero-title animate-on-scroll delay-1">Let's Work Together</h1>
+        <p class="page-hero-subtitle animate-on-scroll delay-2">Send us a message or book a meeting — we'd love to hear
+          about your project.</p>
+      </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="section contact-section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- === CONTACT FORM === -->
+          <div class="contact-form-wrapper animate-on-scroll">
+            <div class="contact-card">
+              <div class="contact-card-header">
+                <div class="contact-card-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h2 class="contact-card-title">Send a Message</h2>
+                  <p class="contact-card-subtitle">We'll respond within 24 hours.</p>
+                </div>
+              </div>
+
+              <form id="contactForm" class="contact-form" novalidate>
+                <div class="form-group" id="contactNameGroup">
+                  <label class="form-label" for="contactName">Your Name <span class="required">*</span></label>
+                  <input type="text" id="contactName" class="form-input" placeholder="Enter your name" required
+                    autocomplete="name">
+                  <span class="form-error">Please enter your name.</span>
+                </div>
+
+                <div class="form-group" id="contactEmailGroup">
+                  <label class="form-label" for="contactEmail">Email Address <span class="required">*</span></label>
+                  <input type="email" id="contactEmail" class="form-input" placeholder="you@example.com" required
+                    autocomplete="email">
+                  <span class="form-error">Please enter a valid email address.</span>
+                </div>
+
+                <div class="form-group" id="contactMessageGroup">
+                  <label class="form-label" for="contactMessage">Your Message <span class="required">*</span></label>
+                  <textarea id="contactMessage" class="form-textarea"
+                    placeholder="Tell us about your project or question..." required rows="5"></textarea>
+                  <span class="form-error">Please enter your message.</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg contact-submit" id="contactSubmitBtn">
+                  <span class="btn-text">Send Message</span>
+                  <span class="btn-loading" style="display:none;"><span class="spinner"></span> Sending...</span>
+                </button>
+              </form>
+            </div>
+
+            <!-- Contact Info Cards -->
+            <div class="contact-info-grid">
+              <div class="contact-info-card">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                <div>
+                  <span class="info-label">Email</span>
+                  <a href="mailto:synthworks1303@gmail.com" class="info-value">synthworks1303@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact-info-card">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+                <div>
+                  <span class="info-label">Availability</span>
+                  <span class="info-value">Mon–Tue, Thu, Sat–Sun &middot; 3:30–8 PM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- === BOOKING FORM === -->
+          <div class="booking-form-wrapper animate-on-scroll delay-2" id="booking">
+            <div class="contact-card booking-card">
+              <div class="contact-card-header">
+                <div class="contact-card-icon booking-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                </div>
+                <div>
+                  <h2 class="contact-card-title">Book a Meeting</h2>
+                  <p class="contact-card-subtitle">Pick a date and time that works for you.</p>
+                </div>
+              </div>
+
+              <form id="bookingForm" class="contact-form" novalidate>
+                <div class="form-row">
+                  <div class="form-group" id="bookNameGroup">
+                    <label class="form-label" for="bookName">Your Name <span class="required">*</span></label>
+                    <input type="text" id="bookName" class="form-input" placeholder="Enter your name" required
+                      autocomplete="name">
+                    <span class="form-error">Please enter your name.</span>
+                  </div>
+
+                  <div class="form-group" id="bookEmailGroup">
+                    <label class="form-label" for="bookEmail">Email Address <span class="required">*</span></label>
+                    <input type="email" id="bookEmail" class="form-input" placeholder="you@example.com" required
+                      autocomplete="email">
+                    <span class="form-error">Please enter a valid email.</span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group" id="bookPhoneGroup">
+                    <label class="form-label" for="bookPhone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="bookPhone" class="form-input" placeholder="+91 98765 43210" required
+                      autocomplete="tel">
+                    <span class="form-error">Please enter a valid phone number.</span>
+                  </div>
+
+                  <div class="form-group" id="bookServiceGroup">
+                    <label class="form-label" for="bookService">Service <span class="required">*</span></label>
+                    <select id="bookService" class="form-select" required>
+                      <option value="" disabled selected>Select a service</option>
+                      <option value="Web Development">Web Development</option>
+                      <option value="Graphic Design">Graphic Design</option>
+                      <option value="Video Production">Video Production</option>
+                      <option value="AI Automation">AI Automation</option>
+                      <option value="Website Maintenance">Website Maintenance</option>
+                      <option value="Branding">Branding</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <span class="form-error">Please select a service.</span>
+                  </div>
+                </div>
+
+                <div class="form-group" id="bookMessageGroup">
+                  <label class="form-label" for="bookMessage">Additional Notes <span
+                      style="color:var(--text-muted); font-weight:400;">(optional)</span></label>
+                  <textarea id="bookMessage" class="form-textarea" placeholder="Any details about your project..."
+                    rows="3"></textarea>
+                </div>
+
+                <!-- Date Picker -->
+                <div class="form-group" id="bookDateGroup">
+                  <label class="form-label">Select Date <span class="required">*</span></label>
+                  <div class="date-picker" id="datePicker">
+                    <div class="date-picker-header">
+                      <button type="button" class="date-nav-btn" id="prevMonth" aria-label="Previous month">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2">
+                          <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                      </button>
+                      <span class="date-picker-month" id="currentMonth"></span>
+                      <button type="button" class="date-nav-btn" id="nextMonth" aria-label="Next month">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2">
+                          <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="date-picker-weekdays">
+                      <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                    </div>
+                    <div class="date-picker-grid" id="dateGrid"></div>
+                    <div class="date-picker-legend">
+                      <span class="legend-item"><span class="legend-dot available"></span> Available</span>
+                      <span class="legend-item"><span class="legend-dot unavailable"></span> Unavailable (Wed &
+                        Fri)</span>
+                    </div>
+                  </div>
+                  <input type="hidden" id="bookDate" required>
+                  <span class="form-error">Please select a date.</span>
+                </div>
+
+                <!-- Time Picker -->
+                <div class="form-group" id="bookTimeGroup">
+                  <label class="form-label">Select Time <span class="required">*</span></label>
+                  <p class="form-hint" style="margin-bottom: var(--space-sm);">Available: 3:30 PM – 8:00 PM</p>
+                  <div class="time-slots" id="timeSlots">
+                    <button type="button" class="time-slot" data-time="15:30">3:30 PM</button>
+                    <button type="button" class="time-slot" data-time="16:00">4:00 PM</button>
+                    <button type="button" class="time-slot" data-time="16:30">4:30 PM</button>
+                    <button type="button" class="time-slot" data-time="17:00">5:00 PM</button>
+                    <button type="button" class="time-slot" data-time="17:30">5:30 PM</button>
+                    <button type="button" class="time-slot" data-time="18:00">6:00 PM</button>
+                    <button type="button" class="time-slot" data-time="18:30">6:30 PM</button>
+                    <button type="button" class="time-slot" data-time="19:00">7:00 PM</button>
+                    <button type="button" class="time-slot" data-time="19:30">7:30 PM</button>
+                    <button type="button" class="time-slot" data-time="20:00">8:00 PM</button>
+                  </div>
+                  <input type="hidden" id="bookTime" required>
+                  <span class="form-error">Please select a time slot.</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg contact-submit" id="bookingSubmitBtn">
+                  <span class="btn-text">Confirm Booking</span>
+                  <span class="btn-loading" style="display:none;"><span class="spinner"></span> Booking...</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="siteFooter">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="margin-bottom: var(--space-sm);">
+            <img src="logo.jpeg" alt="SynthWorks Digital Agency" class="site-logo-img">
+          </a>
+          <p>We craft digital experiences that elevate brands. From web development to AI automation, we bring creative
+            vision to life.</p>
+          <div class="footer-socials">
+            <a href="mailto:synthworks1303@gmail.com" class="footer-social-link" aria-label="Email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+            </a>
+            <a href="https://github.com/rajputrudra494-svg" target="_blank" rel="noopener" class="footer-social-link"
+              aria-label="GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#services">Web Development</a></li>
+            <li><a href="index.html#services">Graphic Design</a></li>
+            <li><a href="index.html#services">Video Production</a></li>
+            <li><a href="index.html#services">AI Automation</a></li>
+            <li><a href="index.html#services">Branding</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="portfolio.html">Our Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admin.html">Admin Portal</a></li>
+            <li><a href="contact.html#booking">Book a Meeting</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Get in Touch</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:synthworks1303@gmail.com">synthworks1303@gmail.com</a></li>
+            <li><span style="color: var(--text-muted); font-size: 0.875rem;">Mon–Tue, Thu, Sat–Sun</span></li>
+            <li><span style="color: var(--text-muted); font-size: 0.875rem;">3:30 PM – 8:00 PM</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 SynthWork Digital Agency. All rights reserved.</span>
+        <span>Crafted with precision &amp; purpose.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="core.js?v=2"></script>
+  <script src="email-utils.js?v=2"></script>
+  <script src="contact.js?v=2"></script>
+</body>
+
+</html>
