@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModalClose();
   initStatusFilter();
   initRefresh();
+  initClearButtons();
 });
 
 // ===== AUTH =====
@@ -348,6 +349,74 @@ async function declineBooking(id) {
   } catch (err) {
     console.error('Decline error:', err);
     showToast('error', 'Action Failed', 'Could not decline the booking. Please try again.');
+  }
+}
+
+// ===== CLEAR DATA =====
+
+function initClearButtons() {
+  const clearBookingsBtn = document.getElementById('clearBookingsBtn');
+  const clearContactsBtn = document.getElementById('clearContactsBtn');
+
+  if (clearBookingsBtn) {
+    clearBookingsBtn.addEventListener('click', () => clearAllBookings());
+  }
+  if (clearContactsBtn) {
+    clearContactsBtn.addEventListener('click', () => clearAllContacts());
+  }
+}
+
+async function clearAllBookings() {
+  if (!confirm('⚠️ Are you sure you want to delete ALL bookings?\n\nThis will permanently remove every pending, approved, and declined booking. This action cannot be undone.')) {
+    return;
+  }
+
+  try {
+    if (!window.sbClient) {
+      showToast('error', 'Error', 'Supabase not connected.');
+      return;
+    }
+
+    const { error } = await window.sbClient
+      .from('bookings')
+      .delete()
+      .neq('id', 0); // deletes all rows
+
+    if (error) throw error;
+
+    currentBookings = [];
+    showToast('success', 'Bookings Cleared', 'All bookings have been permanently deleted.');
+    loadBookings();
+  } catch (err) {
+    console.error('Clear bookings error:', err);
+    showToast('error', 'Clear Failed', 'Could not clear bookings: ' + err.message);
+  }
+}
+
+async function clearAllContacts() {
+  if (!confirm('⚠️ Are you sure you want to delete ALL contact messages?\n\nThis will permanently remove every contact submission. This action cannot be undone.')) {
+    return;
+  }
+
+  try {
+    if (!window.sbClient) {
+      showToast('error', 'Error', 'Supabase not connected.');
+      return;
+    }
+
+    const { error } = await window.sbClient
+      .from('contact_submissions')
+      .delete()
+      .neq('id', 0); // deletes all rows
+
+    if (error) throw error;
+
+    currentContacts = [];
+    showToast('success', 'Messages Cleared', 'All contact messages have been permanently deleted.');
+    loadContacts();
+  } catch (err) {
+    console.error('Clear contacts error:', err);
+    showToast('error', 'Clear Failed', 'Could not clear messages: ' + err.message);
   }
 }
 
