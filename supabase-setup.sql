@@ -68,7 +68,21 @@ CREATE POLICY "Allow public update on bookings"
   USING (true)
   WITH CHECK (true);
 
--- 7. Auto-update timestamp trigger
+-- 7. RLS Policies - Allow deletes on bookings (for clearing data)
+DROP POLICY IF EXISTS "Allow public delete on bookings" ON bookings;
+CREATE POLICY "Allow public delete on bookings"
+  ON bookings FOR DELETE
+  TO anon
+  USING (true);
+
+-- 8. RLS Policies - Allow deletes on contact_submissions (for clearing data)
+DROP POLICY IF EXISTS "Allow public delete on contact_submissions" ON contact_submissions;
+CREATE POLICY "Allow public delete on contact_submissions"
+  ON contact_submissions FOR DELETE
+  TO anon
+  USING (true);
+
+-- 9. Auto-update timestamp trigger
 CREATE OR REPLACE FUNCTION update_updated_at()
 RETURNS TRIGGER AS $$
 BEGIN
