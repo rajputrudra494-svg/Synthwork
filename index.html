@@ -4,505 +4,566 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SynthWork — Digital Agency | Web Development, Design & AI Automation</title>
+  <title>Synthworks — Websites, Design, Video &amp; AI Automation</title>
   <meta name="description"
-    content="SynthWork is a digital agency specializing in web development, graphic design, video production, AI automation, and branding. Elevate your brand with creative excellence.">
-  <meta name="keywords"
-    content="web development, graphic design, video production, AI automation, branding, digital agency">
+    content="Synthworks is a small digital studio building custom websites, brand design, video and AI automation. Get a call and start with us.">
+  <meta name="theme-color" content="#08070b">
+  <meta property="og:title" content="Synthworks — Impossible to ignore">
+  <meta property="og:description"
+    content="Custom websites, brand design, video and AI automation — built from scratch. Get a call and start with us.">
+  <meta property="og:type" content="website">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="animations.css">
-  <link rel="stylesheet" href="home.css">
-  <link rel="stylesheet" href="responsive.css">
-
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..500,0..100,0..1;1,9..144,300..500,0..100,0..1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <noscript>
+    <style>
+      .loader { display: none }
+      .reveal, [data-split] .ch { opacity: 1 !important; transform: none !important }
+      .w-cover::after { display: none }
+    </style>
+  </noscript>
 </head>
 
-<body>
-  <!-- ===== NAVIGATION ===== -->
-  <nav class="nav" id="mainNav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="SynthWork Home">
-        <img src="logo.jpeg" alt="SynthWorks Digital Agency" class="site-logo-img">
-      </a>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="index.html#services" class="nav-link">Services</a>
-        <a href="portfolio.html" class="nav-link">Portfolio</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-        <a href="admin.html" class="nav-link">Admin</a>
-        <a href="contact.html#booking" class="nav-cta">Book a Meeting</a>
-      </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+<body class="is-loading">
+
+  <!-- Logo mark + icons, reused with <use href="#..."> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="mark" viewBox="0 0 64 64" fill="none">
+      <path class="mk-a" d="M44 20A12 12 0 1 0 32 32" stroke-width="10" />
+      <path class="mk-b" d="M32 32A12 12 0 1 1 20 44" stroke-width="10" />
+    </symbol>
+    <symbol id="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M7 17 17 7M8 7h9v9" />
+    </symbol>
+    <symbol id="phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path
+        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+    </symbol>
+  </svg>
+
+  <!-- ============ LOADER ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-card">
+      <svg class="loader-mark" viewBox="0 0 64 64" fill="none">
+        <path class="mk-a" pathLength="1" d="M44 20A12 12 0 1 0 32 32" stroke-width="10" />
+        <path class="mk-b" pathLength="1" d="M32 32A12 12 0 1 1 20 44" stroke-width="10" />
+      </svg>
+      <span class="loader-pct"><b id="loaderPct">0</b>%</span>
+      <span class="loader-word" id="loaderWord">Warming up</span>
     </div>
-  </nav>
-
-  <div class="page-content">
-
-    <!-- ===== HERO SECTION ===== -->
-    <section class="hero" id="hero">
-      <div class="hero-bg">
-        <div class="hero-orb hero-orb-1"></div>
-        <div class="hero-orb hero-orb-2"></div>
-        <div class="hero-orb hero-orb-3"></div>
-        <div class="hero-grid-lines"></div>
-      </div>
-
-      <div class="container hero-container">
-        <div class="hero-content">
-          <div class="hero-label animate-on-scroll">
-            <span class="hero-label-dot"></span>
-            Creative Digital Agency
-          </div>
-
-          <h1 class="hero-title animate-on-scroll delay-1">
-            Elevate Your Brand with
-            <span class="text-gradient">Creative Excellence</span>
-          </h1>
-
-          <p class="hero-description animate-on-scroll delay-2">
-            We design and build digital experiences that drive results. From stunning websites to intelligent automation
-            — we bring your vision to life with precision and purpose.
-          </p>
-
-          <div class="hero-actions animate-on-scroll delay-3">
-            <a href="contact.html#booking" class="btn btn-primary btn-lg">
-              Book a Meeting
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14m-7-7 7 7-7 7" />
-              </svg>
-            </a>
-            <a href="portfolio.html" class="btn btn-outline btn-lg">
-              View Our Work
-            </a>
-          </div>
-
-          <div class="hero-stats animate-on-scroll delay-4">
-            <div class="hero-stat">
-              <div class="hero-stat-icons">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                  <line x1="8" y1="21" x2="16" y2="21" />
-                  <line x1="12" y1="17" x2="12" y2="21" />
-                </svg>
-              </div>
-              <div>
-                <span class="hero-stat-label">Services</span>
-                <span class="hero-stat-value">Web, Design, Video, AI</span>
-              </div>
-            </div>
-            <div class="hero-stat-divider"></div>
-            <div class="hero-stat">
-              <div class="hero-stat-icons">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
-              </div>
-              <div>
-                <span class="hero-stat-label">Approach</span>
-                <span class="hero-stat-value">Quality Over Quantity</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual animate-on-scroll delay-2">
-          <div class="hero-visual-card">
-            <div class="hero-visual-inner">
-              <div class="hero-code-block">
-                <div class="code-dots">
-                  <span></span><span></span><span></span>
-                </div>
-                <div class="code-lines">
-                  <div class="code-line"><span class="code-keyword">const</span> <span class="code-var">brand</span> =
-                    <span class="code-fn">createExperience</span>({</div>
-                  <div class="code-line indent"><span class="code-prop">design</span>: <span
-                      class="code-str">'premium'</span>,</div>
-                  <div class="code-line indent"><span class="code-prop">tech</span>: <span
-                      class="code-str">'cutting-edge'</span>,</div>
-                  <div class="code-line indent"><span class="code-prop">result</span>: <span
-                      class="code-str">'exceptional'</span></div>
-                  <div class="code-line">});</div>
-                  <div class="code-line"></div>
-                  <div class="code-line"><span class="code-keyword">await</span> brand.<span
-                      class="code-fn">launch</span>();</div>
-                  <div class="code-line"><span class="code-comment">// Your vision, our craft ✦</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-scroll-indicator">
-        <span>Scroll</span>
-        <div class="scroll-line">
-          <div class="scroll-dot"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SERVICES SECTION ===== -->
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label animate-on-scroll">What We Do</span>
-          <h2 class="section-title animate-on-scroll delay-1">Services Built for Growth</h2>
-          <p class="section-subtitle animate-on-scroll delay-2">Every project is approached with a focus on quality,
-            functionality, and design that serves your business goals.</p>
-        </div>
-
-        <div class="services-grid">
-          <!-- Web Development -->
-          <div class="service-card animate-on-scroll delay-1">
-            <div class="service-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="16 18 22 12 16 6" />
-                <polyline points="8 6 2 12 8 18" />
-              </svg>
-            </div>
-            <h3 class="service-title">Web Development</h3>
-            <p class="service-desc">Custom-built websites and web applications designed to perform. Clean code,
-              responsive design, fast load times — built to last.</p>
-            <a href="portfolio.html" class="service-link">See examples <svg width="14" height="14" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14m-7-7 7 7-7 7" />
-              </svg></a>
-          </div>
-
-          <!-- Graphic Design -->
-          <div class="service-card animate-on-scroll delay-2">
-            <div class="service-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 19l7-7 3 3-7 7-3-3z" />
-                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
-                <path d="M2 2l7.586 7.586" />
-                <circle cx="11" cy="11" r="2" />
-              </svg>
-            </div>
-            <h3 class="service-title">Graphic Design</h3>
-            <p class="service-desc">Visual identity, brand collateral, social media graphics, and print materials that
-              communicate your brand's story clearly.</p>
-            <a href="portfolio.html" class="service-link">See examples <svg width="14" height="14" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14m-7-7 7 7-7 7" />
-              </svg></a>
-          </div>
-
-          <!-- Video Production -->
-          <div class="service-card animate-on-scroll delay-3">
-            <div class="service-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="23 7 16 12 23 17 23 7" />
-                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
-              </svg>
-            </div>
-            <h3 class="service-title">Video Production</h3>
-            <p class="service-desc">Professional video editing, motion graphics, and content creation that captures
-              attention and tells your story effectively.</p>
-            <a href="portfolio.html" class="service-link">See examples <svg width="14" height="14" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14m-7-7 7 7-7 7" />
-              </svg></a>
-          </div>
-
-          <!-- AI Automation -->
-          <div class="service-card animate-on-scroll delay-4">
-            <div class="service-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93" />
-                <path d="M8.24 13.57A8 8 0 0 0 4 20h16a8 8 0 0 0-4.24-6.43" />
-                <circle cx="12" cy="8" r="1" />
-                <path d="M17 6a6 6 0 0 1 0 12" />
-                <path d="M7 6a6 6 0 0 0 0 12" />
-              </svg>
-            </div>
-            <h3 class="service-title">AI Automation</h3>
-            <p class="service-desc">Streamline your workflow with intelligent automation using n8n, AI agents, and
-              custom integrations that save time and reduce manual work.</p>
-            <a href="portfolio.html" class="service-link">See examples <svg width="14" height="14" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14m-7-7 7 7-7 7" />
-              </svg></a>
-          </div>
-
-          <!-- Website Maintenance -->
-          <div class="service-card animate-on-scroll delay-5">
-            <div class="service-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-              </svg>
-            </div>
-            <h3 class="service-title">Website Maintenance</h3>
-            <p class="service-desc">Keep your site running smoothly with regular updates, security patches, performance
-              optimization, and content management support.</p>
-            <a href="contact.html" class="service-link">Get in touch <svg width="14" height="14" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14m-7-7 7 7-7 7" />
-              </svg></a>
-          </div>
-
-          <!-- Branding -->
-          <div class="service-card animate-on-scroll delay-6">
-            <div class="service-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 3h12l4 6-10 13L2 9z" />
-                <path d="M11 3 8 9l4 13 4-13-3-6" />
-                <path d="M2 9h20" />
-              </svg>
-            </div>
-            <h3 class="service-title">Branding</h3>
-            <p class="service-desc">Logo design, brand strategy, and visual identity systems that give your business a
-              cohesive, professional presence across every touchpoint.</p>
-            <a href="contact.html" class="service-link">Get in touch <svg width="14" height="14" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14m-7-7 7 7-7 7" />
-              </svg></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== ABOUT SECTION ===== -->
-    <section class="section about-section" id="about">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-content">
-            <span class="section-label animate-on-scroll" style="text-align: left; display: inline-block;">Who We
-              Are</span>
-            <h2 class="section-title animate-on-scroll delay-1" style="text-align: left;">Building Digital Experiences
-              That Matter</h2>
-            <div class="divider animate-on-scroll delay-2" style="margin-left: 0;"></div>
-
-            <p class="about-text animate-on-scroll delay-2">
-              SynthWork was founded with a simple belief: every brand deserves a digital presence that truly represents
-              its value. We're not about churning out cookie-cutter solutions — every project we take on gets our full
-              creative attention.
-            </p>
-            <p class="about-text animate-on-scroll delay-3">
-              Our approach combines technical expertise with creative thinking. Whether it's a website, a brand
-              identity, a video, or an automated workflow — we focus on understanding what your business actually needs,
-              then building exactly that.
-            </p>
-            <p class="about-text animate-on-scroll delay-3">
-              We work directly with our clients, keep communication straightforward, and deliver work we're genuinely
-              proud of.
-            </p>
-
-            <div class="about-values animate-on-scroll delay-4">
-              <div class="about-value">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <span>Honest, direct communication</span>
-              </div>
-              <div class="about-value">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <span>Custom solutions, not templates</span>
-              </div>
-              <div class="about-value">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <span>Ongoing support after launch</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="about-visual animate-on-scroll fade-right delay-2">
-            <div class="about-visual-card">
-              <div class="about-visual-shape"></div>
-              <div class="about-visual-content">
-                <div class="about-visual-icon">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 6v6l4 2" />
-                  </svg>
-                </div>
-                <h4>Available for Projects</h4>
-                <p>Mon–Tue, Thu, Sat–Sun<br>3:30 PM – 8:00 PM</p>
-                <a href="contact.html#booking" class="btn btn-sm btn-primary" style="margin-top: 16px;">Schedule a
-                  Call</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== WHY CHOOSE US ===== -->
-    <section class="section why-section" id="why">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label animate-on-scroll">Why SynthWork</span>
-          <h2 class="section-title animate-on-scroll delay-1">What Sets Us Apart</h2>
-          <p class="section-subtitle animate-on-scroll delay-2">We focus on doing meaningful work, not making big
-            promises. Here's what you can expect when working with us.</p>
-        </div>
-
-        <div class="why-grid">
-          <div class="why-card animate-on-scroll delay-1">
-            <div class="why-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-            </div>
-            <h3 class="why-title">Dedicated Attention</h3>
-            <p class="why-desc">We take on a limited number of projects so each one gets the focused, thoughtful work it
-              deserves.</p>
-          </div>
-
-          <div class="why-card animate-on-scroll delay-2">
-            <div class="why-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-            </div>
-            <h3 class="why-title">Built to Last</h3>
-            <p class="why-desc">Clean, maintainable code and timeless design choices that won't need a complete overhaul
-              in six months.</p>
-          </div>
-
-          <div class="why-card animate-on-scroll delay-3">
-            <div class="why-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="3" />
-                <path
-                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
-              </svg>
-            </div>
-            <h3 class="why-title">Custom Solutions</h3>
-            <p class="why-desc">No cookie-cutter templates. Every project is designed and developed from scratch to
-              match your specific needs and goals.</p>
-          </div>
-
-          <div class="why-card animate-on-scroll delay-4">
-            <div class="why-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-                <line x1="4" y1="22" x2="4" y2="15" />
-              </svg>
-            </div>
-            <h3 class="why-title">Ongoing Support</h3>
-            <p class="why-desc">We don't disappear after delivery. Post-launch support, maintenance, and updates are
-              part of how we work.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CTA SECTION ===== -->
-    <section class="section cta-section">
-      <div class="container">
-        <div class="cta-card animate-on-scroll">
-          <div class="cta-bg-glow"></div>
-          <h2 class="cta-title">Ready to Start Your Project?</h2>
-          <p class="cta-desc">Let's discuss how we can help bring your vision to life. Book a free consultation — no
-            obligation, just a conversation about your goals.</p>
-          <div class="cta-actions">
-            <a href="contact.html#booking" class="btn btn-primary btn-lg">Book a Meeting</a>
-            <a href="contact.html" class="btn btn-outline btn-lg">Send a Message</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </div>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer" id="siteFooter">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="nav-logo" style="margin-bottom: var(--space-sm);">
-            <img src="logo.jpeg" alt="SynthWorks Digital Agency" class="site-logo-img">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><span><b></b></span></div>
+  <div class="fx" id="fx" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Synthworks — back to top">
+      <svg class="mark" aria-hidden="true">
+        <use href="#mark" />
+      </svg>
+      <span class="brand-word">Synthworks</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services" data-scramble>Services</a>
+      <a href="#work" data-scramble>Work</a>
+      <a href="#process" data-scramble>Process</a>
+      <a href="#about" data-scramble>About</a>
+      <a href="#contact" data-scramble>Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-solid nav-cta magnetic" href="#contact">Get a call</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">
+        <span class="menu-btn-label">Menu</span>
+        <span class="menu-btn-icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav class="menu-links" aria-label="Mobile">
+      <a href="#services"><small>01</small>Services</a>
+      <a href="#work"><small>02</small>Work</a>
+      <a href="#process"><small>03</small>Process</a>
+      <a href="#about"><small>04</small>About</a>
+      <a href="#contact"><small>05</small>Contact</a>
+    </nav>
+    <div class="menu-foot">
+      <a href="tel:+919426733661">+91 94267 33661</a>
+      <a href="tel:+919898062917">+91 98980 62917</a>
+      <a href="mailto:synthworks1303@gmail.com">synthworks1303@gmail.com</a>
+    </div>
+  </div>
+
+  <!-- Floating call pill -->
+  <a class="pill" id="pill" href="#contact" aria-label="Get a call">
+    <span class="pill-mark"><svg aria-hidden="true">
+        <use href="#mark" />
+      </svg></span>
+    <span class="pill-label">Get a call</span>
+  </a>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero" data-theme="dark">
+      <div class="hero-pin">
+        <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+
+        <p class="hero-tag reveal">Websites, design, video and AI automation — built from scratch by one small studio.
+        </p>
+
+        <h1 class="display hero-title" data-split aria-label="Impossible to ignore">Impossible<br>to
+          <em>ignore</em></h1>
+
+        <div class="hero-stage" aria-hidden="true">
+          <div class="hero-cloud" id="heroCloud"></div>
+        </div>
+
+        <div class="hero-actions reveal">
+          <a class="btn btn-light btn-lg magnetic" href="#contact">
+            Get a call
+            <svg class="i" aria-hidden="true">
+              <use href="#arrow" />
+            </svg>
           </a>
-          <p>We craft digital experiences that elevate brands. From web development to AI automation, we bring creative
-            vision to life.</p>
-          <div class="footer-socials">
-            <a href="mailto:synthworks1303@gmail.com" class="footer-social-link" aria-label="Email">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-              </svg>
-            </a>
-            <a href="https://github.com/rajputrudra494-svg" target="_blank" rel="noopener" class="footer-social-link"
-              aria-label="GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-              </svg>
-            </a>
+          <a class="btn btn-ghost btn-lg magnetic" href="#work">See the work</a>
+        </div>
+
+        <!-- spinning badge -->
+        <a class="badge magnetic" href="#contact" aria-label="Get a call — start with us">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <defs>
+              <path id="badgePath" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0" />
+            </defs>
+            <text>
+              <textPath href="#badgePath" textLength="286">GET A CALL ✦ START WITH US ✦ GET A CALL ✦ </textPath>
+            </text>
+          </svg>
+          <span class="badge-core"><svg class="i">
+              <use href="#arrow" />
+            </svg></span>
+        </a>
+
+        <div class="hero-meta">
+          <span>Scroll</span>
+          <span class="hero-meta-line"></span>
+          <span>Synthworks — Digital studio</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" data-theme="dark" aria-hidden="true">
+      <div class="mq" data-mq="1">
+        <div class="mq-inner"><span>Web Development</span><i>✦</i><span>Graphic Design</span><i>✦</i><span>Video
+            Production</span><i>✦</i><span>AI Automation</span><i>✦</i><span>Branding</span><i>✦</i></div>
+      </div>
+      <div class="mq is-outline" data-mq="-1">
+        <div class="mq-inner"><span>No templates</span><em>ever</em><span>Built from scratch</span><em>always</em><span>Launch
+            then stay</span><em>promise</em><span>Website Maintenance</span><em>too</em></div>
+      </div>
+    </div>
+
+    <!-- ============ CH 01 · PROBLEM ============ -->
+    <section class="problem" id="problem" data-theme="dark">
+      <div class="chapter-bar">
+        <span data-scramble-in>About the problem</span><span>Chapter 01</span>
+      </div>
+      <h2 class="display problem-title" id="problemTitle">
+        <span class="row r1" data-drift="-1">Most brands look</span>
+        <span class="row r2" data-drift="1">the same online.</span>
+        <span class="row r3" data-drift="-1">Same template. Same</span>
+        <span class="row r4" data-drift="1">forgettable homepage.</span>
+      </h2>
+      <div class="problem-copy">
+        <p class="reveal">People scroll past in seconds. If your website, your visuals and your videos look like
+          everyone else's, you're paying to be invisible.</p>
+        <p class="reveal">Synthworks was founded on a simple belief: every brand deserves a digital presence that
+          truly represents its value. So nothing we make comes off a shelf.</p>
+        <p class="problem-hint reveal">(move your cursor around — that's every other website)</p>
+      </div>
+    </section>
+
+    <!-- ============ CH 02 · SERVICES ============ -->
+    <section class="orbit" id="services" data-theme="dark">
+      <canvas class="orbit-canvas" id="orbitCanvas" aria-hidden="true"></canvas>
+      <div class="chapter-bar">
+        <span data-scramble-in>About services</span><span>Chapter 02</span>
+      </div>
+
+      <h2 class="display orbit-title" data-split aria-label="Six ways to get you seen">Six ways to<br>get you
+        <em>seen</em></h2>
+
+      <div class="orbit-system" id="orbitSystem" aria-hidden="true">
+        <div class="ring ring-1">
+          <div class="node" style="--a:20deg"><b>Web Development</b></div>
+          <div class="node" style="--a:200deg"><b>Branding</b></div>
+        </div>
+        <div class="ring ring-2">
+          <div class="node" style="--a:110deg"><b>Graphic Design</b></div>
+          <div class="node" style="--a:290deg"><b>AI Automation</b></div>
+        </div>
+        <div class="ring ring-3">
+          <div class="node" style="--a:150deg"><b>Video Production</b></div>
+          <div class="node" style="--a:330deg"><b>Maintenance</b></div>
+        </div>
+        <div class="core">
+          <svg>
+            <use href="#mark" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="orbit-sides">
+        <p class="reveal">Your brand shouldn't need five different freelancers.</p>
+        <p class="reveal">One studio. Every piece made to fit the others.</p>
+      </div>
+    </section>
+
+    <section class="services sheet" data-theme="bone" aria-label="Services list">
+      <div class="services-head">
+        <p class="eyebrow" data-scramble-in>What we do</p>
+        <p class="services-lede reveal">Every project is approached with a focus on quality, functionality, and
+          design that serves your business goals.</p>
+      </div>
+
+      <ul class="svc-list">
+        <li class="svc reveal">
+          <a href="#work" data-filter="web">
+            <span class="svc-num">01</span>
+            <h3 class="svc-title">Web Development</h3>
+            <span class="svc-art art-web"><i></i><i></i><i></i></span>
+            <p class="svc-desc">Custom-built websites and web applications designed to perform. Clean code, responsive
+              design, fast load times — built to last.</p>
+            <span class="svc-go">See examples <svg class="i">
+                <use href="#arrow" />
+              </svg></span>
+          </a>
+        </li>
+        <li class="svc reveal">
+          <a href="#work" data-filter="design">
+            <span class="svc-num">02</span>
+            <h3 class="svc-title">Graphic Design</h3>
+            <span class="svc-art art-design"><i></i><i></i><i></i></span>
+            <p class="svc-desc">Visual identity, brand collateral, social media graphics, and print materials that
+              communicate your brand's story clearly.</p>
+            <span class="svc-go">See examples <svg class="i">
+                <use href="#arrow" />
+              </svg></span>
+          </a>
+        </li>
+        <li class="svc reveal">
+          <a href="#work" data-filter="video">
+            <span class="svc-num">03</span>
+            <h3 class="svc-title">Video Production</h3>
+            <span class="svc-art art-video"><i></i><i></i><i></i></span>
+            <p class="svc-desc">Professional video editing, motion graphics, and content creation that captures
+              attention and tells your story effectively.</p>
+            <span class="svc-go">See examples <svg class="i">
+                <use href="#arrow" />
+              </svg></span>
+          </a>
+        </li>
+        <li class="svc reveal">
+          <a href="#work" data-filter="ai">
+            <span class="svc-num">04</span>
+            <h3 class="svc-title">AI Automation</h3>
+            <span class="svc-art art-ai"><i></i><i></i><i></i></span>
+            <p class="svc-desc">Streamline your workflow with intelligent automation using n8n, AI agents, and custom
+              integrations that save time and reduce manual work.</p>
+            <span class="svc-go">See examples <svg class="i">
+                <use href="#arrow" />
+              </svg></span>
+          </a>
+        </li>
+        <li class="svc reveal">
+          <a href="#contact">
+            <span class="svc-num">05</span>
+            <h3 class="svc-title">Website Maintenance</h3>
+            <span class="svc-art art-care"><i></i><i></i><i></i></span>
+            <p class="svc-desc">Keep your site running smoothly with regular updates, security patches, performance
+              optimization, and content management support.</p>
+            <span class="svc-go">Get a call <svg class="i">
+                <use href="#arrow" />
+              </svg></span>
+          </a>
+        </li>
+        <li class="svc reveal">
+          <a href="#contact">
+            <span class="svc-num">06</span>
+            <h3 class="svc-title">Branding</h3>
+            <span class="svc-art art-brand"><i></i><i></i><i></i></span>
+            <p class="svc-desc">Logo design, brand strategy, and visual identity systems that give your business a
+              cohesive, professional presence across every touchpoint.</p>
+            <span class="svc-go">Get a call <svg class="i">
+                <use href="#arrow" />
+              </svg></span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ CH 03 · WORK ============ -->
+    <section class="work sheet" id="work" data-theme="dark">
+      <div class="chapter-bar">
+        <span data-scramble-in>About the work</span><span>Chapter 03</span>
+      </div>
+      <div class="work-head">
+        <h2 class="display work-title" data-split aria-label="Proof, not promises">Proof,<br>not <em>promises</em>
+        </h2>
+        <p class="work-lede reveal">A selection of projects we've built — websites, designs, videos, and automation
+          workflows. Every site is live. Open them.</p>
+      </div>
+
+      <div class="filters" id="filters" role="tablist" aria-label="Filter projects">
+        <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">All <sup></sup></button>
+        <button class="filter" data-filter="web" role="tab" aria-selected="false">Websites <sup></sup></button>
+        <button class="filter" data-filter="design" role="tab" aria-selected="false">Design <sup></sup></button>
+        <button class="filter" data-filter="video" role="tab" aria-selected="false">Video <sup></sup></button>
+        <button class="filter" data-filter="ai" role="tab" aria-selected="false">AI Automation <sup></sup></button>
+      </div>
+
+      <div class="work-grid" id="workGrid"></div>
+      <noscript>
+        <p class="work-lede">Enable JavaScript to browse the project gallery, or email
+          synthworks1303@gmail.com for samples.</p>
+      </noscript>
+    </section>
+
+    <!-- ============ CH 04 · PROCESS ============ -->
+    <section class="process sheet" id="process" data-theme="lilac">
+      <div class="process-pin">
+        <div class="chapter-bar">
+          <span data-scramble-in>About the process</span><span>Chapter 04</span>
+        </div>
+        <div class="process-track" id="processTrack">
+          <div class="step step-intro">
+            <h2 class="display" data-split aria-label="From first call to live">From first<br>call to <em>live</em>
+            </h2>
+            <p>Four moves. No mystery, no jargon, no disappearing act.</p>
+            <span class="step-hint">Keep scrolling <svg class="i" aria-hidden="true">
+                <use href="#arrow" />
+              </svg></span>
           </div>
+          <article class="step">
+            <span class="step-num" aria-hidden="true">01</span>
+            <div class="step-body">
+              <span class="eyebrow">Step one</span>
+              <h3 class="display">Get a call</h3>
+              <p>Tell us what you're building. It's a free, no-obligation conversation about your goals — we listen
+                first.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span class="step-num" aria-hidden="true">02</span>
+            <div class="step-body">
+              <span class="eyebrow">Step two</span>
+              <h3 class="display">We map it out</h3>
+              <p>We work out what your business actually needs, then plan exactly that — scope, look and timeline, in
+                plain language.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span class="step-num" aria-hidden="true">03</span>
+            <div class="step-body">
+              <span class="eyebrow">Step three</span>
+              <h3 class="display">We build it</h3>
+              <p>Designed and developed from scratch, no templates. You talk directly to the people doing the work,
+                the whole way through.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span class="step-num" aria-hidden="true">04</span>
+            <div class="step-body">
+              <span class="eyebrow">Step four</span>
+              <h3 class="display">Launch, then stay</h3>
+              <p>We don't disappear after delivery. Post-launch support, maintenance and updates are part of how we
+                work.</p>
+              <a class="btn btn-ink magnetic" href="#contact">Start with step one <svg class="i" aria-hidden="true">
+                  <use href="#arrow" />
+                </svg></a>
+            </div>
+          </article>
         </div>
-        <div>
-          <h4 class="footer-heading">Services</h4>
-          <ul class="footer-links">
-            <li><a href="index.html#services">Web Development</a></li>
-            <li><a href="index.html#services">Graphic Design</a></li>
-            <li><a href="index.html#services">Video Production</a></li>
-            <li><a href="index.html#services">AI Automation</a></li>
-            <li><a href="index.html#services">Branding</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="footer-heading">Company</h4>
-          <ul class="footer-links">
-            <li><a href="index.html#about">About Us</a></li>
-            <li><a href="portfolio.html">Our Work</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="admin.html">Admin Portal</a></li>
-            <li><a href="contact.html#booking">Book a Meeting</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="footer-heading">Get in Touch</h4>
-          <ul class="footer-links">
-            <li><a href="mailto:synthworks1303@gmail.com">synthworks1303@gmail.com</a></li>
-            <li><span style="color: var(--text-muted); font-size: 0.875rem;">Mon–Tue, Thu, Sat–Sun</span></li>
-            <li><span style="color: var(--text-muted); font-size: 0.875rem;">3:30 PM – 8:00 PM</span></li>
+        <div class="process-bar" aria-hidden="true"><i id="processBar"></i></div>
+      </div>
+    </section>
+
+    <!-- ============ CH 05 · ABOUT ============ -->
+    <section class="about sheet" id="about" data-theme="bone">
+      <div class="chapter-bar">
+        <span data-scramble-in>About us</span><span>Chapter 05</span>
+      </div>
+
+      <!-- draggable stickers -->
+      <div class="stickers" aria-hidden="true">
+        <span class="sticker s1" data-drag>no templates</span>
+        <span class="sticker s2" data-drag>100% custom ✦</span>
+        <span class="sticker s3" data-drag>we pick up</span>
+        <span class="sticker s4" data-drag>drag me</span>
+      </div>
+
+      <div class="about-top">
+        <h2 class="display about-title" data-split aria-label="Small on purpose">Small<br>on <em>purpose</em></h2>
+        <div class="about-copy">
+          <p class="reveal">We're not about churning out cookie-cutter solutions — every project we take on gets our
+            full creative attention.</p>
+          <p class="reveal">Our approach combines technical expertise with creative thinking. Whether it's a website,
+            a brand identity, a video, or an automated workflow, we focus on understanding what your business
+            actually needs, then building exactly that.</p>
+          <p class="reveal">We work directly with our clients, keep communication straightforward, and deliver work
+            we're genuinely proud of.</p>
+          <ul class="values reveal">
+            <li>Honest, direct communication</li>
+            <li>Custom solutions, not templates</li>
+            <li>Ongoing support after launch</li>
           </ul>
         </div>
       </div>
+
+      <div class="why-grid">
+        <article class="why reveal">
+          <span class="why-num">A</span>
+          <h3>Dedicated attention</h3>
+          <p>We take on a limited number of projects so each one gets the focused, thoughtful work it deserves.</p>
+        </article>
+        <article class="why reveal">
+          <span class="why-num">B</span>
+          <h3>Built to last</h3>
+          <p>Clean, maintainable code and timeless design choices that won't need a complete overhaul in six months.
+          </p>
+        </article>
+        <article class="why reveal">
+          <span class="why-num">C</span>
+          <h3>Custom solutions</h3>
+          <p>No cookie-cutter templates. Every project is designed and developed from scratch to match your specific
+            needs and goals.</p>
+        </article>
+        <article class="why reveal">
+          <span class="why-num">D</span>
+          <h3>Ongoing support</h3>
+          <p>We don't disappear after delivery. Post-launch support, maintenance, and updates are part of how we
+            work.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CH 06 · CONTACT ============ -->
+    <section class="contact sheet" id="contact" data-theme="dark">
+      <div class="contact-glow" id="contactGlow" aria-hidden="true"></div>
+      <div class="chapter-bar">
+        <span data-scramble-in>Get started</span><span>Chapter 06</span>
+      </div>
+
+      <h2 class="display contact-title" aria-label="Get a call. Start with us.">
+        <span class="line" data-split>Get a call.</span>
+        <span class="line" data-split>Start <em>with us.</em></span>
+      </h2>
+      <p class="contact-lede reveal">Tell us what you're building and we'll talk it through. No forms, no waiting
+        rooms — call either number, any time.</p>
+
+      <div class="contact-grid">
+        <a class="c-card c-call reveal" href="tel:+919426733661" data-cursor="Call">
+          <span class="c-label">Number 1</span>
+          <span class="c-ring" aria-hidden="true"><svg class="i">
+              <use href="#phone" />
+            </svg></span>
+          <span class="c-big">+91 94267 33661</span>
+          <span class="c-note">Tap to call. We pick up any time.</span>
+        </a>
+
+        <a class="c-card c-call c-call-2 reveal" href="tel:+919898062917" data-cursor="Call">
+          <span class="c-label">Number 2</span>
+          <span class="c-ring" aria-hidden="true"><svg class="i">
+              <use href="#phone" />
+            </svg></span>
+          <span class="c-big">+91 98980 62917</span>
+          <span class="c-note">Line busy? Try this one.</span>
+        </a>
+
+        <div class="c-card c-email reveal">
+          <span class="c-label">Email</span>
+          <a class="c-big c-link" href="mailto:synthworks1303@gmail.com">synthworks1303<wbr>@gmail.com</a>
+          <div class="c-actions">
+            <button class="chip" id="copyEmail" type="button" data-copy="synthworks1303@gmail.com">Copy
+              address</button>
+            <a class="chip" href="mailto:synthworks1303@gmail.com">Write to us</a>
+            <a class="chip" id="callBack" href="mailto:synthworks1303@gmail.com">Ask us to call you</a>
+          </div>
+        </div>
+
+        <a class="c-card c-git reveal" href="https://github.com/rajputrudra494-svg" target="_blank" rel="noopener"
+          data-cursor="Open">
+          <span class="c-label">GitHub</span>
+          <span class="c-go"><svg class="i" aria-hidden="true">
+              <use href="#arrow" />
+            </svg></span>
+          <span class="c-big">rajputrudra494-svg</span>
+          <span class="c-note">See what we're building.</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" data-theme="dark">
+    <a class="marquee" href="#contact" aria-label="Get a call — start with us">
+      <div class="mq" data-mq="1">
+        <div class="mq-inner"><span>Get a call</span><i>✦</i><span>Start with us</span><i>✦</i><span>Get a
+            call</span><i>✦</i><span>Start with us</span><i>✦</i></div>
+      </div>
+    </a>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div>
+          <h4>Services</h4>
+          <a href="#services">Web Development</a>
+          <a href="#services">Graphic Design</a>
+          <a href="#services">Video Production</a>
+          <a href="#services">AI Automation</a>
+          <a href="#services">Branding</a>
+        </div>
+        <div>
+          <h4>Studio</h4>
+          <a href="#about">About us</a>
+          <a href="#work">Our work</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Get a call</a>
+        </div>
+        <div>
+          <h4>Reach us</h4>
+          <a href="tel:+919426733661">+91 94267 33661</a>
+          <a href="tel:+919898062917">+91 98980 62917</a>
+          <a href="mailto:synthworks1303@gmail.com">synthworks1303@gmail.com</a>
+          <a href="https://github.com/rajputrudra494-svg" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="footer-word" aria-hidden="true">
+        <svg class="mark">
+          <use href="#mark" />
+        </svg>
+        <span data-split>Synthworks</span>
+      </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 SynthWork Digital Agency. All rights reserved.</span>
+        <span>&copy; 2026 Synthworks. All rights reserved.</span>
         <span>Crafted with precision &amp; purpose.</span>
+        <a href="#top">Back to top ↑</a>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="core.js"></script>
-  <script src="home.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>
