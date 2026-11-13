@@ -15,12 +15,9 @@ const CONTACT = {
 
 /* ----------------------------------------------------------
    PORTFOLIO — add / remove projects here.
-   cat: 'web' | 'design' | 'video' | 'ai'
+   cat: 'web' (the only category shown right now)
    img: file name (without .webp) inside assets/work/
    ---------------------------------------------------------- */
-const DRIVE_VIDEO = 'https://drive.google.com/drive/folders/1OulK6tY7qPDKkGxPzHBWC79aDr7403dZ';
-const DRIVE_DESIGN = 'https://drive.google.com/drive/folders/1waAgmDA62V1QKswHcgyjza25uD5s7n3m';
-
 const WORK = [
   { cat: 'web', tag: 'Cafe', kind: 'Website', title: 'Engine Cafe', img: 'engine-cafe',
     desc: 'A pure-veg garden cafe on VIP Road, Vesu — cold coffee, sizzlers and a lawn full of fairy lights, open till late.',
@@ -62,32 +59,6 @@ const WORK = [
     desc: 'An open-air garden cafe in Piplod with rooftop seating, DJ nights, sizzlers and thick shakes.',
     live: 'https://cafe-beats-arena.vercel.app/' },
 
-  { cat: 'video', tag: 'Video Collection', kind: 'Video Editing', title: 'Video Production Reel',
-    desc: 'A collection of professional video editing and production work — promotional content, motion graphics, and visual storytelling.',
-    live: DRIVE_VIDEO, liveLabel: 'View on Google Drive' },
-  { cat: 'video', tag: 'Motion Graphics', kind: 'Video Editing', title: 'Motion Graphics & Animation', alt: true,
-    desc: 'Animated content including logo animations, intro sequences, social media video content, and marketing video assets.',
-    live: DRIVE_VIDEO, liveLabel: 'View samples' },
-
-  { cat: 'design', tag: 'Design Gallery', kind: 'Graphic Design', title: 'Brand Identity & Print Design',
-    desc: 'Logo designs, brand identity systems, business cards, social media templates, and marketing collateral for various clients.',
-    live: DRIVE_DESIGN, liveLabel: 'View on Google Drive' },
-  { cat: 'design', tag: 'Visual Content', kind: 'Graphic Design', title: 'Social Media & Digital Graphics', alt: true,
-    desc: 'Eye-catching social media posts, banner designs, infographics, and digital marketing visuals optimized for engagement.',
-    live: DRIVE_DESIGN, liveLabel: 'View gallery' },
-
-  { cat: 'ai', tag: 'n8n Workflow', kind: 'AI Automation', title: 'AI Agent Chatbot', flow: ['Trigger', 'AI', 'Output'],
-    desc: 'Intelligent conversational agent built with n8n, OpenAI, and SerpAPI. Handles customer queries, searches the web, and provides context-aware responses.',
-    live: 'https://n8n.io/workflows/1954-ai-agent-chat/', liveLabel: 'View on n8n' },
-  { cat: 'ai', tag: 'n8n Workflow', kind: 'AI Automation', title: 'Web Scraper + AI Summarizer', flow: ['HTTP', 'Scrape', 'AI Sum'],
-    desc: 'Automated workflow that scrapes web content, processes it through AI for summarization, and delivers structured insights in real-time.',
-    live: 'https://n8n.io/workflows/1951-scrape-and-summarize-webpages-with-ai/', liveLabel: 'View on n8n' },
-  { cat: 'ai', tag: 'n8n Workflow', kind: 'AI Automation', title: 'Telegram AI Chatbot', flow: ['Telegram', 'GPT', 'Reply'],
-    desc: 'AI-powered Telegram bot that processes user messages through OpenAI, handles conversation context, and delivers intelligent automated responses.',
-    live: 'https://n8n.io/workflows/1934-telegram-ai-chatbot/', liveLabel: 'View on n8n' },
-  { cat: 'ai', tag: 'n8n Workflow', kind: 'AI Automation', title: 'Custom API Endpoint Builder', flow: ['Webhook', 'Process', 'API'],
-    desc: 'Automated API endpoint creation using n8n webhooks — no traditional backend needed. Perfect for integrating services and processing data flows.',
-    live: 'https://n8n.io/workflows/1750-creating-an-api-endpoint/', liveLabel: 'View on n8n' },
 ];
 
 /* ---------------------------------------------------------- */
@@ -205,7 +176,12 @@ function initWork() {
           <a class="tlink" href="${esc(p.live)}" target="_blank" rel="noopener">${esc(p.liveLabel || 'Visit live site')} ${ARROW}</a>
         </div>
       </div>
-    </article>`).join('');
+    </article>`).join('') + `
+    <a class="w-cta" href="#contact" data-cursor="Call">
+      <span class="w-kind">Next up</span>
+      <span class="w-cta-big">Your site<br>goes <em>here</em></span>
+      <span class="tlink">Get a call ${ARROW}</span>
+    </a>`;
 
   const cards = $$('.w-card', grid);
   const filters = $$('.filter');

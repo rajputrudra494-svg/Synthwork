@@ -1303,3 +1303,13 @@ a.c-card:hover .c-go { transform: rotate(45deg); background: var(--ink); color: 
 @media (prefers-reduced-motion: reduce) {
   .fx { display: none; }
 }
+
+/* closing tile in the work grid */
+.w-cta { grid-column: span 2; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 20px; min-height: 260px; padding: clamp(20px, 2.4vw, 32px); border-radius: 14px; border: 1px dashed rgba(203, 182, 255, .5); transition: background .5s var(--ease), border-color .4s, transform .6s var(--ease); }
+.w-cta:hover { background: rgba(111, 75, 255, .22); border-color: var(--lilac); transform: translateY(-6px); }
+.w-cta-big { font-family: var(--font-display); font-weight: 300; font-variation-settings: 'SOFT' 0, 'WONK' 1; font-size: clamp(2.2rem, 5vw, 5rem); line-height: .92; letter-spacing: -.035em; text-transform: uppercase; }
+.w-cta-big em { font-style: italic; color: var(--lilac); }
+
+@media (max-width: 1080px) {
+  .w-cta { grid-column: span 1; }
+}
