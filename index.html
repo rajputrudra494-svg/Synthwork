@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Synthworks — Websites, Design, Video &amp; AI Automation</title>
   <meta name="description"
     content="Synthworks is a small digital studio building custom websites, brand design, video and AI automation. Get a call and start with us.">
-  <meta name="theme-color" content="#08070b">
+  <meta name="theme-color" content="#000000">
   <meta property="og:title" content="Synthworks — Impossible to ignore">
   <meta property="og:description"
     content="Custom websites, brand design, video and AI automation — built from scratch. Get a call and start with us.">
@@ -16,17 +16,20 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..500,0..100,0..1;1,9..144,300..500,0..100,0..1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=16">
   <noscript>
     <style>
       .loader { display: none }
-      .reveal, [data-split] .ch { opacity: 1 !important; transform: none !important }
-      .w-cover::after { display: none }
     </style>
   </noscript>
+
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.min.js" } }
+  </script>
 </head>
 
 <body class="is-loading">
@@ -41,61 +44,51 @@
       stroke-linejoin="round">
       <path d="M7 17 17 7M8 7h9v9" />
     </symbol>
-    <symbol id="phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-      stroke-linejoin="round">
-      <path
-        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-    </symbol>
   </svg>
 
-  <!-- ============ LOADER ============ -->
+  <!-- ============ LOADER: three channels of light lock into one mark ============ -->
   <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader-card">
-      <svg class="loader-mark" viewBox="0 0 64 64" fill="none">
-        <path class="mk-a" pathLength="1" d="M44 20A12 12 0 1 0 32 32" stroke-width="10" />
-        <path class="mk-b" pathLength="1" d="M32 32A12 12 0 1 1 20 44" stroke-width="10" />
-      </svg>
-      <span class="loader-pct"><b id="loaderPct">0</b>%</span>
-      <span class="loader-word" id="loaderWord">Warming up</span>
+    <div class="loader-mark">
+      <svg viewBox="0 0 64 64" fill="none" class="lm lm-a"><path d="M44 20A12 12 0 1 0 32 32M32 32A12 12 0 1 1 20 44" stroke-width="10" /></svg>
+      <svg viewBox="0 0 64 64" fill="none" class="lm lm-b"><path d="M44 20A12 12 0 1 0 32 32M32 32A12 12 0 1 1 20 44" stroke-width="10" /></svg>
+      <svg viewBox="0 0 64 64" fill="none" class="lm lm-c"><path d="M44 20A12 12 0 1 0 32 32M32 32A12 12 0 1 1 20 44" stroke-width="10" /></svg>
     </div>
+    <p class="loader-line"><span id="loaderWord">Tuning in</span> <b id="loaderPct">0</b>%</p>
   </div>
 
-  <div class="grain" aria-hidden="true"></div>
-  <div class="progress" id="progress" aria-hidden="true"></div>
-  <div class="cursor" id="cursor" aria-hidden="true"><span><b></b></span></div>
-  <div class="fx" id="fx" aria-hidden="true"></div>
+  <!-- The stage: one WebGL canvas behind the whole page -->
+  <canvas class="stage" id="stage" aria-hidden="true"></canvas>
+
+  <div class="cursor" id="cursor" aria-hidden="true"><span></span><b></b></div>
+  <canvas class="trail" id="trail" aria-hidden="true"></canvas>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <a class="brand" href="#top" aria-label="Synthworks — back to top">
-      <svg class="mark" aria-hidden="true">
-        <use href="#mark" />
-      </svg>
+      <svg class="mark" aria-hidden="true"><use href="#mark" /></svg>
       <span class="brand-word">Synthworks</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#services" data-scramble>Services</a>
-      <a href="#work" data-scramble>Work</a>
-      <a href="#process" data-scramble>Process</a>
-      <a href="#about" data-scramble>About</a>
-      <a href="#contact" data-scramble>Contact</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
     </nav>
     <div class="nav-right">
-      <a class="btn btn-solid nav-cta magnetic" href="#contact">Get a call</a>
+      <a class="btn btn-primary nav-cta" href="#contact">Get a call</a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">
         <span class="menu-btn-label">Menu</span>
-        <span class="menu-btn-icon" aria-hidden="true"><i></i><i></i></span>
       </button>
     </div>
   </header>
 
   <div class="menu" id="menu" aria-hidden="true">
     <nav class="menu-links" aria-label="Mobile">
-      <a href="#services"><small>01</small>Services</a>
-      <a href="#work"><small>02</small>Work</a>
-      <a href="#process"><small>03</small>Process</a>
-      <a href="#about"><small>04</small>About</a>
-      <a href="#contact"><small>05</small>Contact</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact">Get a call</a>
     </nav>
     <div class="menu-foot">
       <a href="tel:+919426733661">+91 94267 33661</a>
@@ -104,459 +97,277 @@
     </div>
   </div>
 
-  <!-- Floating call pill -->
-  <a class="pill" id="pill" href="#contact" aria-label="Get a call">
-    <span class="pill-mark"><svg aria-hidden="true">
-        <use href="#mark" />
-      </svg></span>
-    <span class="pill-label">Get a call</span>
-  </a>
+  <!-- Call button that follows you on phones -->
+  <a class="callbar" id="callbar" href="#contact">Get a call</a>
 
   <main id="top">
 
     <!-- ============ HERO ============ -->
-    <section class="hero" id="hero" data-theme="dark">
-      <div class="hero-pin">
-        <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+    <section class="hero" id="hero">
+      <p class="hero-kicker">Websites, design, video and AI automation — built from scratch by one small studio.</p>
 
-        <p class="hero-tag reveal">Websites, design, video and AI automation — built from scratch by one small studio.
-        </p>
+      <h1 class="hero-title" aria-label="Impossible to ignore">
+        <span class="ht-line" data-wave aria-hidden="true">Impossible</span>
+        <span class="ht-line ht-line-2" data-wave aria-hidden="true">to ignore</span>
+      </h1>
 
-        <h1 class="display hero-title" data-split aria-label="Impossible to ignore">Impossible<br>to
-          <em>ignore</em></h1>
-
-        <div class="hero-stage" aria-hidden="true">
-          <div class="hero-cloud" id="heroCloud"></div>
+      <div class="hero-foot">
+        <p class="hero-lede">Everyone else online is noise. We build the signal: one studio, every piece made to fit
+          the others.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#contact">Get a call</a>
+          <a class="btn btn-line btn-lg" href="#work">See 13 live sites</a>
         </div>
+      </div>
+      <p class="hero-hint" aria-hidden="true">Move through the signal</p>
+    </section>
 
-        <div class="hero-actions reveal">
-          <a class="btn btn-light btn-lg magnetic" href="#contact">
-            Get a call
-            <svg class="i" aria-hidden="true">
-              <use href="#arrow" />
-            </svg>
-          </a>
-          <a class="btn btn-ghost btn-lg magnetic" href="#work">See the work</a>
+    <!-- ============ PROBLEM: a sea of identical pages ============ -->
+    <section class="problem" id="problem" aria-label="The problem with looking like everyone else">
+      <div class="problem-sticky">
+        <div class="beat">
+          <h2 class="h-xl">Most brands look the same online.</h2>
         </div>
-
-        <!-- spinning badge -->
-        <a class="badge magnetic" href="#contact" aria-label="Get a call — start with us">
-          <svg viewBox="0 0 120 120" aria-hidden="true">
-            <defs>
-              <path id="badgePath" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0" />
-            </defs>
-            <text>
-              <textPath href="#badgePath" textLength="286">GET A CALL ✦ START WITH US ✦ GET A CALL ✦ </textPath>
-            </text>
-          </svg>
-          <span class="badge-core"><svg class="i">
-              <use href="#arrow" />
-            </svg></span>
-        </a>
-
-        <div class="hero-meta">
-          <span>Scroll</span>
-          <span class="hero-meta-line"></span>
-          <span>Synthworks — Digital studio</span>
+        <div class="beat">
+          <h2 class="h-xl">Same template. Same forgettable homepage.</h2>
+          <p>People scroll past in seconds. If your website, your visuals and your videos look like everyone else's,
+            you're paying to be invisible.</p>
+        </div>
+        <div class="beat">
+          <h2 class="h-xl reg" data-text="Nothing we make comes off a shelf.">Nothing we make comes off a shelf.</h2>
+          <p>Synthworks was founded on a simple belief: every brand deserves a digital presence that truly represents
+            its value.</p>
         </div>
       </div>
     </section>
 
-    <!-- ============ MARQUEE ============ -->
-    <div class="marquee" data-theme="dark" aria-hidden="true">
-      <div class="mq" data-mq="1">
-        <div class="mq-inner"><span>Web Development</span><i>✦</i><span>Graphic Design</span><i>✦</i><span>Video
-            Production</span><i>✦</i><span>AI Automation</span><i>✦</i><span>Branding</span><i>✦</i></div>
+    <!-- ============ SERVICES: six partials, one signal ============ -->
+    <section class="services" id="services">
+      <div class="sec-head">
+        <h2 class="h-xl reg" data-text="Six ways to get you seen">Six ways to get you seen</h2>
+        <p class="sec-lede">Your brand shouldn't need five different freelancers. One studio. Every piece made to fit
+          the others.</p>
       </div>
-      <div class="mq is-outline" data-mq="-1">
-        <div class="mq-inner"><span>No templates</span><em>ever</em><span>Built from scratch</span><em>always</em><span>Launch
-            then stay</span><em>promise</em><span>Website Maintenance</span><em>too</em></div>
-      </div>
-    </div>
 
-    <!-- ============ CH 01 · PROBLEM ============ -->
-    <section class="problem" id="problem" data-theme="dark">
-      <div class="chapter-bar">
-        <span data-scramble-in>About the problem</span><span>Chapter 01</span>
-      </div>
-      <h2 class="display problem-title" id="problemTitle">
-        <span class="row r1" data-drift="-1">Most brands look</span>
-        <span class="row r2" data-drift="1">the same online.</span>
-        <span class="row r3" data-drift="-1">Same template. Same</span>
-        <span class="row r4" data-drift="1">forgettable homepage.</span>
-      </h2>
-      <div class="problem-copy">
-        <p class="reveal">People scroll past in seconds. If your website, your visuals and your videos look like
-          everyone else's, you're paying to be invisible.</p>
-        <p class="reveal">Synthworks was founded on a simple belief: every brand deserves a digital presence that
-          truly represents its value. So nothing we make comes off a shelf.</p>
-        <p class="problem-hint reveal">(move your cursor around — that's every other website)</p>
+      <div class="svc-body">
+        <div class="svc-scope-wrap" aria-hidden="true">
+          <div class="svc-scope" id="scope"></div>
+          <p class="scope-note"><span id="scopeCount">Six services</span>, one signal.</p>
+        </div>
+
+        <ul class="svc-list" id="svcList">
+          <li><button class="svc" type="button" data-svc="0" aria-pressed="false">
+              <span class="svc-name">Web Development</span>
+              <span class="svc-desc">Custom-built websites and web applications designed to perform. Clean code,
+                responsive design, fast load times — built to last.</span>
+            </button></li>
+          <li><button class="svc" type="button" data-svc="1" aria-pressed="false">
+              <span class="svc-name">Graphic Design</span>
+              <span class="svc-desc">Visual identity, brand collateral, social media graphics, and print materials that
+                communicate your brand's story clearly.</span>
+            </button></li>
+          <li><button class="svc" type="button" data-svc="2" aria-pressed="false">
+              <span class="svc-name">Video Production</span>
+              <span class="svc-desc">Professional video editing, motion graphics, and content creation that captures
+                attention and tells your story effectively.</span>
+            </button></li>
+          <li><button class="svc" type="button" data-svc="3" aria-pressed="false">
+              <span class="svc-name">AI Automation</span>
+              <span class="svc-desc">Streamline your workflow with intelligent automation using n8n, AI agents, and
+                custom integrations that save time and reduce manual work.</span>
+            </button></li>
+          <li><button class="svc" type="button" data-svc="4" aria-pressed="false">
+              <span class="svc-name">Website Maintenance</span>
+              <span class="svc-desc">Keep your site running smoothly with regular updates, security patches,
+                performance optimization, and content management support.</span>
+            </button></li>
+          <li><button class="svc" type="button" data-svc="5" aria-pressed="false">
+              <span class="svc-name">Branding</span>
+              <span class="svc-desc">Logo design, brand strategy, and visual identity systems that give your business a
+                cohesive, professional presence across every touchpoint.</span>
+            </button></li>
+        </ul>
       </div>
     </section>
 
-    <!-- ============ CH 02 · SERVICES ============ -->
-    <section class="orbit" id="services" data-theme="dark">
-      <canvas class="orbit-canvas" id="orbitCanvas" aria-hidden="true"></canvas>
-      <div class="chapter-bar">
-        <span data-scramble-in>About services</span><span>Chapter 02</span>
+    <!-- ============ WORK ============ -->
+    <section class="work" id="work">
+      <div class="sec-head">
+        <h2 class="h-xl reg" data-text="Proof, not promises">Proof, not promises</h2>
+        <p class="sec-lede">Thirteen websites we've built for cafes, restaurants and brands. Every one is live. Open
+          them.</p>
       </div>
 
-      <h2 class="display orbit-title" data-split aria-label="Six ways to get you seen">Six ways to<br>get you
-        <em>seen</em></h2>
-
-      <div class="orbit-system" id="orbitSystem" aria-hidden="true">
-        <div class="ring ring-1">
-          <div class="node" style="--a:20deg"><b>Web Development</b></div>
-          <div class="node" style="--a:200deg"><b>Branding</b></div>
-        </div>
-        <div class="ring ring-2">
-          <div class="node" style="--a:110deg"><b>Graphic Design</b></div>
-          <div class="node" style="--a:290deg"><b>AI Automation</b></div>
-        </div>
-        <div class="ring ring-3">
-          <div class="node" style="--a:150deg"><b>Video Production</b></div>
-          <div class="node" style="--a:330deg"><b>Maintenance</b></div>
-        </div>
-        <div class="core">
-          <svg>
-            <use href="#mark" />
-          </svg>
-        </div>
-      </div>
-
-      <div class="orbit-sides">
-        <p class="reveal">Your brand shouldn't need five different freelancers.</p>
-        <p class="reveal">One studio. Every piece made to fit the others.</p>
-      </div>
-    </section>
-
-    <section class="services sheet" data-theme="bone" aria-label="Services list">
-      <div class="services-head">
-        <p class="eyebrow" data-scramble-in>What we do</p>
-        <p class="services-lede reveal">Every project is approached with a focus on quality, functionality, and
-          design that serves your business goals.</p>
-      </div>
-
-      <ul class="svc-list">
-        <li class="svc reveal">
-          <a href="#work">
-            <span class="svc-num">01</span>
-            <h3 class="svc-title">Web Development</h3>
-            <span class="svc-art art-web"><i></i><i></i><i></i></span>
-            <p class="svc-desc">Custom-built websites and web applications designed to perform. Clean code, responsive
-              design, fast load times — built to last.</p>
-            <span class="svc-go">See examples <svg class="i">
-                <use href="#arrow" />
-              </svg></span>
-          </a>
-        </li>
-        <li class="svc reveal">
-          <a href="#contact">
-            <span class="svc-num">02</span>
-            <h3 class="svc-title">Graphic Design</h3>
-            <span class="svc-art art-design"><i></i><i></i><i></i></span>
-            <p class="svc-desc">Visual identity, brand collateral, social media graphics, and print materials that
-              communicate your brand's story clearly.</p>
-            <span class="svc-go">Get a call <svg class="i">
-                <use href="#arrow" />
-              </svg></span>
-          </a>
-        </li>
-        <li class="svc reveal">
-          <a href="#contact">
-            <span class="svc-num">03</span>
-            <h3 class="svc-title">Video Production</h3>
-            <span class="svc-art art-video"><i></i><i></i><i></i></span>
-            <p class="svc-desc">Professional video editing, motion graphics, and content creation that captures
-              attention and tells your story effectively.</p>
-            <span class="svc-go">Get a call <svg class="i">
-                <use href="#arrow" />
-              </svg></span>
-          </a>
-        </li>
-        <li class="svc reveal">
-          <a href="#contact">
-            <span class="svc-num">04</span>
-            <h3 class="svc-title">AI Automation</h3>
-            <span class="svc-art art-ai"><i></i><i></i><i></i></span>
-            <p class="svc-desc">Streamline your workflow with intelligent automation using n8n, AI agents, and custom
-              integrations that save time and reduce manual work.</p>
-            <span class="svc-go">Get a call <svg class="i">
-                <use href="#arrow" />
-              </svg></span>
-          </a>
-        </li>
-        <li class="svc reveal">
-          <a href="#contact">
-            <span class="svc-num">05</span>
-            <h3 class="svc-title">Website Maintenance</h3>
-            <span class="svc-art art-care"><i></i><i></i><i></i></span>
-            <p class="svc-desc">Keep your site running smoothly with regular updates, security patches, performance
-              optimization, and content management support.</p>
-            <span class="svc-go">Get a call <svg class="i">
-                <use href="#arrow" />
-              </svg></span>
-          </a>
-        </li>
-        <li class="svc reveal">
-          <a href="#contact">
-            <span class="svc-num">06</span>
-            <h3 class="svc-title">Branding</h3>
-            <span class="svc-art art-brand"><i></i><i></i><i></i></span>
-            <p class="svc-desc">Logo design, brand strategy, and visual identity systems that give your business a
-              cohesive, professional presence across every touchpoint.</p>
-            <span class="svc-go">Get a call <svg class="i">
-                <use href="#arrow" />
-              </svg></span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ============ CH 03 · WORK ============ -->
-    <section class="work sheet" id="work" data-theme="dark">
-      <div class="chapter-bar">
-        <span data-scramble-in>About the work</span><span>Chapter 03</span>
-      </div>
-      <div class="work-head">
-        <h2 class="display work-title" data-split aria-label="Proof, not promises">Proof,<br>not <em>promises</em>
-        </h2>
-        <p class="work-lede reveal">A selection of websites we've built for cafes, restaurants and brands.
-          Every one is live. Open them.</p>
-      </div>
-
-      <div class="work-grid" id="workGrid"></div>
+      <div class="work-list" id="workList"></div>
       <noscript>
-        <p class="work-lede">Enable JavaScript to browse the project gallery, or email
-          synthworks1303@gmail.com for samples.</p>
+        <p class="sec-lede">Enable JavaScript to browse the project gallery, or email synthworks1303@gmail.com for
+          samples.</p>
       </noscript>
+
+      <a class="work-next" href="#contact" data-cursor="Call">
+        <span class="work-next-small">Next up</span>
+        <span class="work-next-big">Your site goes here</span>
+        <span class="tlink">Get a call <svg class="i" aria-hidden="true"><use href="#arrow" /></svg></span>
+      </a>
+
+      <!-- every client, on a loop that speeds up and reverses with your scroll -->
+      <div class="names" id="names" aria-hidden="true"></div>
     </section>
 
-    <!-- ============ CH 04 · PROCESS ============ -->
-    <section class="process sheet" id="process" data-theme="lilac">
+    <!-- ============ PROCESS (paper) ============ -->
+    <section class="process" id="process" data-theme="paper">
       <div class="process-pin">
-        <div class="chapter-bar">
-          <span data-scramble-in>About the process</span><span>Chapter 04</span>
-        </div>
+        <svg class="pline" id="pline" aria-hidden="true" preserveAspectRatio="none">
+          <path class="pline-c pline-c1" fill="none" />
+          <path class="pline-c pline-c2" fill="none" />
+          <path class="pline-c pline-c3" fill="none" />
+        </svg>
         <div class="process-track" id="processTrack">
-          <div class="step step-intro">
-            <h2 class="display" data-split aria-label="From first call to live">From first<br>call to <em>live</em>
-            </h2>
+          <div class="pstep pstep-intro">
+            <h2 class="h-xl">From first call to live</h2>
             <p>Four moves. No mystery, no jargon, no disappearing act.</p>
-            <span class="step-hint">Keep scrolling <svg class="i" aria-hidden="true">
-                <use href="#arrow" />
-              </svg></span>
           </div>
-          <article class="step">
-            <span class="step-num" aria-hidden="true">01</span>
-            <div class="step-body">
-              <span class="eyebrow">Step one</span>
-              <h3 class="display">Get a call</h3>
-              <p>Tell us what you're building. It's a free, no-obligation conversation about your goals — we listen
-                first.</p>
-            </div>
+          <article class="pstep">
+            <span class="pnum" aria-hidden="true">1</span>
+            <h3 class="h-lg">Get a call</h3>
+            <p>Tell us what you're building. It's a free, no-obligation conversation about your goals — we listen
+              first.</p>
           </article>
-          <article class="step">
-            <span class="step-num" aria-hidden="true">02</span>
-            <div class="step-body">
-              <span class="eyebrow">Step two</span>
-              <h3 class="display">We map it out</h3>
-              <p>We work out what your business actually needs, then plan exactly that — scope, look and timeline, in
-                plain language.</p>
-            </div>
+          <article class="pstep">
+            <span class="pnum" aria-hidden="true">2</span>
+            <h3 class="h-lg">We map it out</h3>
+            <p>We work out what your business actually needs, then plan exactly that — scope, look and timeline, in
+              plain language.</p>
           </article>
-          <article class="step">
-            <span class="step-num" aria-hidden="true">03</span>
-            <div class="step-body">
-              <span class="eyebrow">Step three</span>
-              <h3 class="display">We build it</h3>
-              <p>Designed and developed from scratch, no templates. You talk directly to the people doing the work,
-                the whole way through.</p>
-            </div>
+          <article class="pstep">
+            <span class="pnum" aria-hidden="true">3</span>
+            <h3 class="h-lg">We build it</h3>
+            <p>Designed and developed from scratch, no templates. You talk directly to the people doing the work, the
+              whole way through.</p>
           </article>
-          <article class="step">
-            <span class="step-num" aria-hidden="true">04</span>
-            <div class="step-body">
-              <span class="eyebrow">Step four</span>
-              <h3 class="display">Launch, then stay</h3>
-              <p>We don't disappear after delivery. Post-launch support, maintenance and updates are part of how we
-                work.</p>
-              <a class="btn btn-ink magnetic" href="#contact">Start with step one <svg class="i" aria-hidden="true">
-                  <use href="#arrow" />
-                </svg></a>
-            </div>
+          <article class="pstep">
+            <span class="pnum" aria-hidden="true">4</span>
+            <h3 class="h-lg">Launch, then stay</h3>
+            <p>We don't disappear after delivery. Post-launch support, maintenance and updates are part of how we
+              work.</p>
+            <a class="btn btn-ink" href="#contact">Start with step one</a>
           </article>
         </div>
-        <div class="process-bar" aria-hidden="true"><i id="processBar"></i></div>
       </div>
     </section>
 
-    <!-- ============ CH 05 · ABOUT ============ -->
-    <section class="about sheet" id="about" data-theme="bone">
-      <div class="chapter-bar">
-        <span data-scramble-in>About us</span><span>Chapter 05</span>
-      </div>
+    <!-- ============ ABOUT (paper) ============ -->
+    <section class="about" id="about" data-theme="paper">
+      <h2 class="h-xl about-title">Small on purpose</h2>
 
-      <!-- draggable stickers -->
-      <div class="stickers" aria-hidden="true">
-        <span class="sticker s1" data-drag>no templates</span>
-        <span class="sticker s2" data-drag>100% custom ✦</span>
-        <span class="sticker s3" data-drag>we pick up</span>
-        <span class="sticker s4" data-drag>drag me</span>
-      </div>
+      <p class="manifesto" id="manifesto">We're not about churning out cookie-cutter solutions. Every project we take
+        on gets our full creative attention. Whether it's a website, a brand identity, a video, or an automated
+        workflow, we focus on understanding what your business actually needs, then building exactly that.</p>
 
-      <div class="about-top">
-        <h2 class="display about-title" data-split aria-label="Small on purpose">Small<br>on <em>purpose</em></h2>
-        <div class="about-copy">
-          <p class="reveal">We're not about churning out cookie-cutter solutions — every project we take on gets our
-            full creative attention.</p>
-          <p class="reveal">Our approach combines technical expertise with creative thinking. Whether it's a website,
-            a brand identity, a video, or an automated workflow, we focus on understanding what your business
-            actually needs, then building exactly that.</p>
-          <p class="reveal">We work directly with our clients, keep communication straightforward, and deliver work
-            we're genuinely proud of.</p>
-          <ul class="values reveal">
-            <li>Honest, direct communication</li>
-            <li>Custom solutions, not templates</li>
-            <li>Ongoing support after launch</li>
-          </ul>
-        </div>
-      </div>
+      <div class="about-cols">
+        <ul class="values">
+          <li>Honest, direct communication</li>
+          <li>Custom solutions, not templates</li>
+          <li>Ongoing support after launch</li>
+        </ul>
 
-      <div class="why-grid">
-        <article class="why reveal">
-          <span class="why-num">A</span>
-          <h3>Dedicated attention</h3>
-          <p>We take on a limited number of projects so each one gets the focused, thoughtful work it deserves.</p>
-        </article>
-        <article class="why reveal">
-          <span class="why-num">B</span>
-          <h3>Built to last</h3>
-          <p>Clean, maintainable code and timeless design choices that won't need a complete overhaul in six months.
-          </p>
-        </article>
-        <article class="why reveal">
-          <span class="why-num">C</span>
-          <h3>Custom solutions</h3>
-          <p>No cookie-cutter templates. Every project is designed and developed from scratch to match your specific
-            needs and goals.</p>
-        </article>
-        <article class="why reveal">
-          <span class="why-num">D</span>
-          <h3>Ongoing support</h3>
-          <p>We don't disappear after delivery. Post-launch support, maintenance, and updates are part of how we
-            work.</p>
-        </article>
+        <dl class="why">
+          <div class="why-row">
+            <dt>Dedicated attention</dt>
+            <dd>We take on a limited number of projects so each one gets the focused, thoughtful work it deserves.</dd>
+          </div>
+          <div class="why-row">
+            <dt>Built to last</dt>
+            <dd>Clean, maintainable code and timeless design choices that won't need a complete overhaul in six
+              months.</dd>
+          </div>
+          <div class="why-row">
+            <dt>Custom solutions</dt>
+            <dd>No cookie-cutter templates. Every project is designed and developed from scratch to match your
+              specific needs and goals.</dd>
+          </div>
+          <div class="why-row">
+            <dt>Ongoing support</dt>
+            <dd>We don't disappear after delivery. Post-launch support, maintenance, and updates are part of how we
+              work.</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
-    <!-- ============ CH 06 · CONTACT ============ -->
-    <section class="contact sheet" id="contact" data-theme="dark">
-      <div class="contact-glow" id="contactGlow" aria-hidden="true"></div>
-      <div class="chapter-bar">
-        <span data-scramble-in>Get started</span><span>Chapter 06</span>
+    <!-- ============ CONTACT: the signal rings ============ -->
+    <section class="contact" id="contact">
+      <div class="contact-head">
+        <h2 class="h-xxl reg" data-text="Get a call.">Get a call.</h2>
+        <p class="contact-sub">Start with us.</p>
+      </div>
+      <p class="contact-lede">Tell us what you're building and we'll talk it through. No forms, no waiting rooms —
+        call either number, any time.</p>
+      <p class="clock">It's <time id="ist">—</time> in India right now. We pick up.</p>
+
+      <div class="tels" id="tels">
+        <a class="tel" href="tel:+919426733661" data-cursor="Call">
+          <span class="tel-num">+91 94267 33661</span>
+          <span class="tel-note">Tap to call. We pick up any time.</span>
+        </a>
+        <a class="tel" href="tel:+919898062917" data-cursor="Call">
+          <span class="tel-num">+91 98980 62917</span>
+          <span class="tel-note">Line busy? Try this one.</span>
+        </a>
       </div>
 
-      <h2 class="display contact-title" aria-label="Get a call. Start with us.">
-        <span class="line" data-split>Get a call.</span>
-        <span class="line" data-split>Start <em>with us.</em></span>
-      </h2>
-      <p class="contact-lede reveal">Tell us what you're building and we'll talk it through. No forms, no waiting
-        rooms — call either number, any time.</p>
-
-      <div class="contact-grid">
-        <a class="c-card c-call reveal" href="tel:+919426733661" data-cursor="Call">
-          <span class="c-label">Number 1</span>
-          <span class="c-ring" aria-hidden="true"><svg class="i">
-              <use href="#phone" />
-            </svg></span>
-          <span class="c-big">+91 94267 33661</span>
-          <span class="c-note">Tap to call. We pick up any time.</span>
-        </a>
-
-        <a class="c-card c-call c-call-2 reveal" href="tel:+919898062917" data-cursor="Call">
-          <span class="c-label">Number 2</span>
-          <span class="c-ring" aria-hidden="true"><svg class="i">
-              <use href="#phone" />
-            </svg></span>
-          <span class="c-big">+91 98980 62917</span>
-          <span class="c-note">Line busy? Try this one.</span>
-        </a>
-
-        <div class="c-card c-email reveal">
-          <span class="c-label">Email</span>
-          <a class="c-big c-link" href="mailto:synthworks1303@gmail.com">synthworks1303<wbr>@gmail.com</a>
-          <div class="c-actions">
-            <button class="chip" id="copyEmail" type="button" data-copy="synthworks1303@gmail.com">Copy
-              address</button>
-            <a class="chip" href="mailto:synthworks1303@gmail.com">Write to us</a>
-            <a class="chip" id="callBack" href="mailto:synthworks1303@gmail.com">Ask us to call you</a>
-          </div>
+      <div class="mail">
+        <a class="mail-addr" href="mailto:synthworks1303@gmail.com">synthworks1303<wbr>@gmail.com</a>
+        <div class="mail-actions">
+          <button class="chip" id="copyEmail" type="button" data-copy="synthworks1303@gmail.com">Copy address</button>
+          <a class="chip" href="mailto:synthworks1303@gmail.com">Write to us</a>
+          <a class="chip" id="callBack" href="mailto:synthworks1303@gmail.com">Ask us to call you</a>
+          <a class="chip" href="https://github.com/rajputrudra494-svg" target="_blank" rel="noopener">GitHub</a>
         </div>
-
-        <a class="c-card c-git reveal" href="https://github.com/rajputrudra494-svg" target="_blank" rel="noopener"
-          data-cursor="Open">
-          <span class="c-label">GitHub</span>
-          <span class="c-go"><svg class="i" aria-hidden="true">
-              <use href="#arrow" />
-            </svg></span>
-          <span class="c-big">rajputrudra494-svg</span>
-          <span class="c-note">See what we're building.</span>
-        </a>
       </div>
     </section>
   </main>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="footer" data-theme="dark">
-    <a class="marquee" href="#contact" aria-label="Get a call — start with us">
-      <div class="mq" data-mq="1">
-        <div class="mq-inner"><span>Get a call</span><i>✦</i><span>Start with us</span><i>✦</i><span>Get a
-            call</span><i>✦</i><span>Start with us</span><i>✦</i></div>
+  <footer class="footer">
+    <div class="names cta-loop" id="ctaLoop" aria-hidden="true"></div>
+    <div class="footer-cols">
+      <div>
+        <h3>Services</h3>
+        <a href="#services">Web Development</a>
+        <a href="#services">Graphic Design</a>
+        <a href="#services">Video Production</a>
+        <a href="#services">AI Automation</a>
+        <a href="#services">Website Maintenance</a>
+        <a href="#services">Branding</a>
       </div>
-    </a>
-    <div class="footer-inner">
-      <div class="footer-cols">
-        <div>
-          <h4>Services</h4>
-          <a href="#services">Web Development</a>
-          <a href="#services">Graphic Design</a>
-          <a href="#services">Video Production</a>
-          <a href="#services">AI Automation</a>
-          <a href="#services">Branding</a>
-        </div>
-        <div>
-          <h4>Studio</h4>
-          <a href="#about">About us</a>
-          <a href="#work">Our work</a>
-          <a href="#process">Process</a>
-          <a href="#contact">Get a call</a>
-        </div>
-        <div>
-          <h4>Reach us</h4>
-          <a href="tel:+919426733661">+91 94267 33661</a>
-          <a href="tel:+919898062917">+91 98980 62917</a>
-          <a href="mailto:synthworks1303@gmail.com">synthworks1303@gmail.com</a>
-          <a href="https://github.com/rajputrudra494-svg" target="_blank" rel="noopener">GitHub</a>
-        </div>
+      <div>
+        <h3>Studio</h3>
+        <a href="#about">About us</a>
+        <a href="#work">Our work</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Get a call</a>
       </div>
-      <div class="footer-word" aria-hidden="true">
-        <svg class="mark">
-          <use href="#mark" />
-        </svg>
-        <span data-split>Synthworks</span>
+      <div>
+        <h3>Reach us</h3>
+        <a href="tel:+919426733661">+91 94267 33661</a>
+        <a href="tel:+919898062917">+91 98980 62917</a>
+        <a href="mailto:synthworks1303@gmail.com">synthworks1303@gmail.com</a>
+        <a href="https://github.com/rajputrudra494-svg" target="_blank" rel="noopener">GitHub</a>
       </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 Synthworks. All rights reserved.</span>
-        <span>Crafted with precision &amp; purpose.</span>
-        <span>Developed by Rudra</span>
-        <a href="#top">Back to top ↑</a>
-      </div>
+    </div>
+    <p class="footer-word" id="footerWord" aria-hidden="true" data-wave>Synthworks</p>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Synthworks. All rights reserved.</span>
+      <span>Developed by Rudra</span>
+      <a href="#top">Back to top</a>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js" defer></script>
+  <script type="module" src="js/main.js?v=16"></script>
 </body>
 
 </html>
